@@ -1,8 +1,7 @@
-package com.celebclothing.texstre.controller;
+package com.texstre.celebclothing.controller;
 
-import com.celebclothing.texstre.service.EmailService;
-import com.celebclothing.texstre.service.OtpService;
-import com.celebclothing.texstre.service.SmsService;
+import com.texstre.celebclothing.service.OtpService;
+import com.texstre.celebclothing.service.SmsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

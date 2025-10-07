@@ -1,0 +1,14 @@
+Product:
+  type: object
+  properties:
+    id:
+      type: integer
+      format: int64
+      readOnly: true
+    name:
+      type: string
+    price:
+      type: number
+      format: double
+    category:
+      type: string

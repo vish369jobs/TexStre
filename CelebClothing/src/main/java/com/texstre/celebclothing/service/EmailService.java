@@ -1,4 +1,4 @@
-package com.celebclothing.texstre.service;
+package com.texstre.celebclothing.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;

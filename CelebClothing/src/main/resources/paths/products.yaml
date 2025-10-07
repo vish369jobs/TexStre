@@ -1,0 +1,25 @@
+get:
+  summary: Get a list of products
+  responses:
+    '200':
+      description: Audit scores data
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Product'
+post:
+  summary: Add a product to the store
+  requestBody:
+    description: Product details
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '#/components/schemas/Product'
+  responses:
+    '201':
+      description: Created product
+    '400':
+      description: Product already exists

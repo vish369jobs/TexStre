@@ -1,0 +1,46 @@
+# ROOT File
+openapi: 3.1.1
+info:
+  title: TexStre E-commerce API
+  description: |-
+    An e-commerce API that allows various operations related to products, categories, and shopping carts.
+  version: 1.0-SNAPSHOT
+servers:
+  - url: https://testenvironment.org/api/v1
+  - url: https://prodenvironment.org/api/v1
+tags:
+  - name: products
+    description: Operations related to products
+  - name: categories
+    description: Operations related to product categories
+  - name: cart
+    description: Operations related to shopping carts
+
+paths:
+  /users:
+    post:
+      summary: Create a new user for eCommerce application
+      requestBody:
+        description: User details
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: Created User Successfully
+        '400':
+          description: User already exists
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        Gender:
+          type: string

@@ -1,4 +1,4 @@
-package com.celebclothing.texstre.service;
+package com.texstre.celebclothing.service;
 
 import org.springframework.stereotype.Service;
 import java.security.SecureRandom;
@@ -12,7 +12,7 @@ public class OtpService {
     private final Map<String, String> otpStore = new HashMap<>();
     private final Random random = new SecureRandom();
 
-    public HTTPre generateOtp(String key) {
+    public String generateOtp(String key) {
         String otp = String.format("%04d", random.nextInt(10000));
         otpStore.put(key, otp);
         return otp;
