@@ -17,23 +17,35 @@ tags:
     description: Operations related to shopping carts
 
 paths:
+  /users/{userId}:
+    get:
+      summary: Get a user by ID
+      parameters: userId
+      operationId: getUserById
+      responses:
+        "200":
+          description: A single user.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
   /users:
     post:
-      summary: Create a new user for eCommerce application
+      summary: Add a new User
+      operationId: createUser
       requestBody:
-        description: User details
+        description: Create a new User
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: "#/components/schemas/User"
       responses:
-        '201':
-          description: Created User Successfully
-        '400':
-          description: User already exists
+        "201":
+          description: Created
 
 components:
+  # Reusable schemas (data models)
   schemas:
     User:
       type: object
@@ -42,5 +54,29 @@ components:
           type: integer
         name:
           type: string
-        Gender:
+        gender:
           type: string
+
+  # Reusable path, query, header and cookie parameters
+  #parameters: ...
+
+  # Security scheme definitions (see Authentication)
+  #securitySchemes: ...
+
+  # Reusable request bodies
+  #requestBodies: ...
+
+  # Reusable responses, such as 401 Unauthorized or 400 Bad Request
+  #responses: ...
+
+  # Reusable response headers
+  #headers: ...
+
+  # Reusable examples
+  #examples: ...
+
+  # Reusable links
+  #links: ...
+
+  # Reusable callbacks
+  #callbacks:
