@@ -87,6 +87,7 @@
 							<generatorName>spring</generatorName>
 							<apiPackage>com.texstre.api</apiPackage>
 							<modelPackage>com.texstre.model</modelPackage>
+							<modelNameSuffix>DTO</modelNameSuffix>
 						</configuration>
 					</execution>
 				</executions>
