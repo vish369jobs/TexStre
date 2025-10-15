@@ -1,17 +1,17 @@
 package com.texstre.celebclothing.response;
 
 public class ApiResponse<T> {
-    private String status;
+    private String httpcode;
     private String message;
     private T data;
     private Object metadata;
 
-    public String getStatus() {
-        return status;
+    public String getHttpcode() {
+        return httpcode;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setHttpcode(String httpcode) {
+        this.httpcode = httpcode;
     }
 
     public String getMessage() {
@@ -38,8 +38,8 @@ public class ApiResponse<T> {
         this.metadata = metadata;
     }
 
-    public ApiResponse(String status, String message, T data, Object metadata) {
-        this.status = status;
+    public ApiResponse(String httpcode, String message, T data, Object metadata) {
+        this.httpcode = httpcode;
         this.message = message;
         this.data = data;
         this.metadata = metadata;
