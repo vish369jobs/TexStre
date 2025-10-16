@@ -20,7 +20,14 @@ paths:
   /users/{userId}:
     get:
       summary: Get a user by ID
-      parameters: userId
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+            description: The unique identifier of the user.
       operationId: getUserById
       responses:
         "200":
