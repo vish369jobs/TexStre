@@ -7,7 +7,7 @@ import org.hibernate.annotations.ColumnDefault;
 @Entity
 public class UserDetails {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "iduser_details")
     private Long idUserDetails;
     @Column(name = "user_type")
@@ -23,14 +23,12 @@ public class UserDetails {
     @Column(name = "email_id")
     private String emailId;
     @NotNull
-    @Column(name = "is_valid", nullable=false)
+    @Column(name = "is_valid", nullable = false)
     @ColumnDefault("1")
     private boolean isValid;
-    @Column(name = "botiqs_followed")
-    private String botiqsFollowed;
 
-
-    public UserDetails() {}
+    public UserDetails() {
+    }
 
     @Override
     public String toString() {
@@ -103,11 +101,4 @@ public class UserDetails {
         isValid = valid;
     }
 
-    public String getBotiqsFollowed() {
-        return botiqsFollowed;
-    }
-
-    public void setBotiqsFollowed(String botiqsFollowed) {
-        this.botiqsFollowed = botiqsFollowed;
-    }
 }

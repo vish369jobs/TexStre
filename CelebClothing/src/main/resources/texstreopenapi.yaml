@@ -66,6 +66,21 @@ paths:
         "201":
           description: Updated
 
+  /products:
+    post:
+      summary: Add a new Product
+      operationId: createProduct
+      requestBody:
+        description: Create a new Product
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Product"
+      responses:
+        "201":
+          description: Created
+
 components:
   # Reusable schemas (data models)
   schemas:
@@ -78,6 +93,15 @@ components:
           type: string
         gender:
           type: string
+    Product:
+      type: object
+      properties:
+        productName:
+          type: string
+        fabric:
+          type: string
+        price:
+          type: number
 
   # Reusable path, query, header and cookie parameters
   #parameters: ...
