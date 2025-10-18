@@ -1,16 +1,16 @@
 package com.texstre.celebclothing.response;
 
 public class ApiResponse<T> {
-    private String httpcode;
+    private Integer httpcode;
     private String message;
     private T data;
     private Object metadata;
 
-    public String getHttpcode() {
+    public Integer getHttpcode() {
         return httpcode;
     }
 
-    public void setHttpcode(String httpcode) {
+    public void setHttpcode(Integer httpcode) {
         this.httpcode = httpcode;
     }
 
@@ -38,7 +38,7 @@ public class ApiResponse<T> {
         this.metadata = metadata;
     }
 
-    public ApiResponse(String httpcode, String message, T data, Object metadata) {
+    public ApiResponse(Integer httpcode, String message, T data, Object metadata) {
         this.httpcode = httpcode;
         this.message = message;
         this.data = data;

@@ -17,21 +17,21 @@ tags:
     description: Operations related to shopping carts
 
 paths:
-  /users/{userId}:
+  /users/{phoneNum}:
     get:
-      summary: Get a user by ID
+      summary: Get a user by Phone number
+      operationId: fetchUserByPhoneNum
       parameters:
         - in: path
-          name: userId
+          name: phoneNum
           required: true
           schema:
             type: integer
             minimum: 1
-            description: The unique identifier of the user.
-      operationId: getUserById
+            description: The Phone or contact number identifier of the user.
       responses:
         "200":
-          description: A single user.
+          description: A single user with the given phone number.
           content:
             application/json:
               schema:
@@ -41,7 +41,7 @@ paths:
       summary: Add a new User
       operationId: createUser
       requestBody:
-        description: Create a new User
+        description: Create a new User using Phone number
         required: true
         content:
           application/json:
@@ -51,13 +51,28 @@ paths:
         "201":
           description: Created
 
+  /users/{userPhoneNum}:
+    put:
+      summary: Update details of existing User
+      operationId: updateUser
+      requestBody:
+        description: Update additional details a User
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+      responses:
+        "201":
+          description: Updated
+
 components:
   # Reusable schemas (data models)
   schemas:
     User:
       type: object
       properties:
-        id:
+        contactNum:
           type: integer
         name:
           type: string
