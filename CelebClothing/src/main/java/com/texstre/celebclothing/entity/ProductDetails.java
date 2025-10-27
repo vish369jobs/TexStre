@@ -2,11 +2,20 @@ package com.texstre.celebclothing.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 
 import java.math.BigDecimal;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Table(name="product_details")
 public class ProductDetails {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -32,16 +41,6 @@ public class ProductDetails {
     @Column(name = "is_valid", nullable=false)
     @ColumnDefault("1")
     private boolean isValid;
-
-    public ProductDetails() {}
-
-    @Override
-    public String toString() {
-        return String.format(
-                "ProductDetails[id=%d, Product Name='%s', Fabric='%s', Price='%d', ]",
-                productId, productName, fabric, sellingPrice );
-    }
-
 
 }
 

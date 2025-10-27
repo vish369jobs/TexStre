@@ -1,10 +1,12 @@
 package com.texstre.celebclothing.repository;
 
 import com.texstre.celebclothing.entity.UserDetails;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-public interface UserDetailsRepository extends CrudRepository<UserDetails, Long>{
+@Repository
+public interface UserDetailsRepository extends JpaRepository<UserDetails, Long> {
     Optional<UserDetails> findOneByContactNum(Integer contactNum);
 }

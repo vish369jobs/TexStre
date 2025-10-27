@@ -18,10 +18,13 @@ public class ProductController implements ProductsApi {
 
     @Override
     public ResponseEntity<Void> createProduct(ProductDTO productDTO) {
-        ProductDetails prodItem = new ProductDetails();
-        prodItem.setProductName(productDTO.getProductName());
-        prodItem.setFabric(productDTO.getFabric());
-        prodItem.setProductPrice(productDTO.getPrice());
+        ProductDetails prodItem = ProductDetails.builder()
+                .productName(productDTO.getProductName())
+                .basePrice(productDTO.getBasePrice())
+                .sellingPrice(productDTO.getSellPrice())
+                .discountedPrice(productDTO.getDiscPrice())
+                .discPercent(productDTO.getDiscPercent())
+                .build();
         productRepo.save(prodItem);
         return new ResponseEntity<>(HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));
     }

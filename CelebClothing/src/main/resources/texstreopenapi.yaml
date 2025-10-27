@@ -81,6 +81,43 @@ paths:
         "201":
           description: Created
 
+  /addresses:
+    post:
+      summary: Add a new Delivery Address
+      operationId: createDeliveryAddress
+      requestBody:
+        description: Create a new Delivery Address
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeliveryAddress"
+      responses:
+        "201":
+          description: Created
+
+  /addresses/{userId}:
+    get:
+      summary: Get a delivery address by userId
+      operationId: fetchAddressesByUserId
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+            description: The identifier of the user.
+      responses:
+        "200":
+          description: A list of delivery addresses for the given userId
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/DeliveryAddress"
+
 components:
   # Reusable schemas (data models)
   schemas:
@@ -93,6 +130,7 @@ components:
           type: string
         gender:
           type: string
+
     Product:
       type: object
       properties:
@@ -100,8 +138,37 @@ components:
           type: string
         fabric:
           type: string
-        price:
+        basePrice:
           type: number
+        sellPrice:
+          type: number
+        discPrice:
+          type: number
+        discPercent:
+          type: integer
+          format: int64
+
+    DeliveryAddress:
+      type: object
+      properties:
+        addressId:
+          type: integer
+        userId:
+          type: integer
+        contactName:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        pinCode:
+          type: integer
+        country:
+          type: string
 
   # Reusable path, query, header and cookie parameters
   #parameters: ...
