@@ -16,8 +16,18 @@ public class ProductDetails {
     private String productName;
     @Column(name = "fabric")
     private String fabric;
-    @Column(name = "product_price")
-    private BigDecimal productPrice;
+    @Column(name = "base_price")
+    private BigDecimal basePrice;
+    @Column(name = "selling_price")
+    private BigDecimal sellingPrice;
+    @Column(name = "discount_percent")
+    private Long discPercent;
+    @Column(name = "discounted_price")
+    private BigDecimal discountedPrice;
+    @NotNull
+    @Column(name = "apply_discount", nullable=false)
+    @ColumnDefault("0")
+    private boolean applyDisc;
     @NotNull
     @Column(name = "is_valid", nullable=false)
     @ColumnDefault("1")
@@ -29,47 +39,9 @@ public class ProductDetails {
     public String toString() {
         return String.format(
                 "ProductDetails[id=%d, Product Name='%s', Fabric='%s', Price='%d', ]",
-                productId, productName, fabric, productPrice );
+                productId, productName, fabric, sellingPrice );
     }
 
-    public Long getProductId() {
-        return productId;
-    }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public String getFabric() {
-        return fabric;
-    }
-
-    public void setFabric(String fabric) {
-        this.fabric = fabric;
-    }
-
-    public BigDecimal getProductPrice() {
-        return productPrice;
-    }
-
-    public void setProductPrice(BigDecimal productPrice) {
-        this.productPrice = productPrice;
-    }
-
-    public boolean isValid() {
-        return isValid;
-    }
-
-    public void setValid(boolean valid) {
-        isValid = valid;
-    }
 }
 
