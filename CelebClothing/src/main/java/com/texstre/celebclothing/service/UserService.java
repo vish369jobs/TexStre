@@ -2,19 +2,20 @@ package com.texstre.celebclothing.service;
 
 import com.texstre.celebclothing.entity.UserDetails;
 import com.texstre.celebclothing.repository.UserDetailsRepository;
+import com.texstre.celebclothing.util.UserMapper;
 import com.texstre.model.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatusCode;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.net.HttpURLConnection;
 import java.util.Optional;
 
 @Service
 public class UserService {
     @Autowired
     private UserDetailsRepository userRepo;
+
+    @Autowired
+    private UserMapper userMapper;
 
     public void addUser(UserDTO usr) {
         UserDetails usrDetails = UserDetails.builder()
@@ -25,8 +26,8 @@ public class UserService {
         userRepo.save(usrDetails);
     }
 
-    public String getUserByPhone(Integer phoneNum) {
-        return userRepo.findOneByContactNum(phoneNum).toString();
+    public UserDTO getUserByPhone(Integer phoneNum) {
+        return userMapper.userDetailsToUserDTO(userRepo.findOneByContactNum(phoneNum).orElse(new UserDetails()));
     }
 
     public String updateUser(UserDTO updUsr) {

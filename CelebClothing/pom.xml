@@ -28,6 +28,15 @@
 	</scm>
 	<properties>
 		<java.version>17</java.version>
+		<spring.data.jpa.version>4.0.0-M3</spring.data.jpa.version>
+		<mysql.sqlconnector.version>9.4.0</mysql.sqlconnector.version>
+		<swagger.core.v3.version>2.2.38</swagger.core.v3.version>
+		<springdoc.webmvc.ui.version>3.0.0-M1</springdoc.webmvc.ui.version>
+		<jakarta.validation.version>3.1.1</jakarta.validation.version>
+		<lombok.version>1.18.42</lombok.version>
+		<mapstruct.version>1.6.3</mapstruct.version>
+		<maven.compiler.plugin.version>3.14.1</maven.compiler.plugin.version>
+		<openapi.generator.plugin.version>7.16.0</openapi.generator.plugin.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -46,32 +55,47 @@
 		<dependency>
 			<groupId>io.swagger.core.v3</groupId>
 			<artifactId>swagger-annotations</artifactId>
-			<version>2.2.38</version>
+			<version>${swagger.core.v3.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>jakarta.validation</groupId>
 			<artifactId>jakarta.validation-api</artifactId>
-			<version>3.1.1</version>
+			<version>${jakarta.validation.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-			<version>3.0.0-M1</version>
+			<version>${springdoc.webmvc.ui.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-			<version>4.0.0-M3</version>
+			<version>${spring.data.jpa.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
-			<version>9.4.0</version>
+			<version>${mysql.sqlconnector.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.42</version>
+			<version>${lombok.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>${mapstruct.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct-processor</artifactId>
+			<version>${mapstruct.version}</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
@@ -84,7 +108,7 @@
 			<plugin>
 				<groupId>org.openapitools</groupId>
 				<artifactId>openapi-generator-maven-plugin</artifactId>
-				<version>7.16.0</version>
+				<version>${openapi.generator.plugin.version}</version>
 				<executions>
 					<execution>
 						<goals>
@@ -110,13 +134,18 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.14.1</version> <!-- Use a recent version -->
+				<version>${maven.compiler.plugin.version}</version> <!-- Use a recent version -->
 				<configuration>
 					<annotationProcessorPaths>
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
-							<version>1.18.42</version> <!-- Match your dependency version -->
+							<version>${lombok.version}</version> <!-- Match your dependency version -->
+						</path>
+						<path>
+							<groupId>org.mapstruct</groupId>
+							<artifactId>mapstruct-processor</artifactId>
+							<version>${mapstruct.version}</version> <!-- Define this property -->
 						</path>
 					</annotationProcessorPaths>
 				</configuration>

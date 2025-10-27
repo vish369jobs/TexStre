@@ -1,7 +1,5 @@
 package com.texstre.celebclothing.controller;
 
-import com.texstre.celebclothing.entity.UserDetails;
-import com.texstre.celebclothing.repository.UserDetailsRepository;
 import com.texstre.celebclothing.service.UserService;
 import com.texstre.model.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.texstre.api.UsersApi;
 
 import java.net.HttpURLConnection;
-import java.util.Optional;
 
 @RestController
 public class UserController implements UsersApi {
@@ -28,8 +25,7 @@ public class UserController implements UsersApi {
     @Override
     public ResponseEntity<UserDTO> fetchUserByPhoneNum(Integer phoneNum) {
         System.out.println("fetchUserByPhoneNum API called");
-        String usr = usrService.getUserByPhone(phoneNum);
-        return new ResponseEntity<>(new UserDTO().name(usr), HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));
+        return new ResponseEntity<>(usrService.getUserByPhone(phoneNum), HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));
     }
 
     @Override
