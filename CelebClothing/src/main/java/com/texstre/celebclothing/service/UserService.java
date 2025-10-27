@@ -31,11 +31,11 @@ public class UserService {
 
     public String updateUser(UserDTO updUsr) {
         Optional<UserDetails> usr = userRepo.findOneByContactNum(updUsr.getContactNum());
-        /*if(usr.isPresent()) {
+        if(usr.isPresent()) {
             usr.get().setUserName(updUsr.getName());
             usr.get().setGender(updUsr.getGender());
             userRepo.save(usr.get());
-        }*/
+        }
         return "Success";
     }
 }
