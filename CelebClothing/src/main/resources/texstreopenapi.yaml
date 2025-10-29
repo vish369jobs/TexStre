@@ -118,6 +118,30 @@ paths:
                 items:
                   $ref: "#/components/schemas/DeliveryAddress"
 
+  /legal/tandc:
+    get:
+      summary: To provide Terms And Conditions as Response
+      operationId: retrieveTermsAndConditions
+      responses:
+        "200":
+          description: Terms and Conditions data from the file TermsAndConditions.txt
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
+
+  /legal/privacy_policy:
+    get:
+      summary: To provide Privacy Policy as Response
+      operationId: retrievePrivacyPolicy
+      responses:
+        "200":
+          description: Privacy policy data from the file PrivacyPolicy.txt
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
+
 components:
   # Reusable schemas (data models)
   schemas:
@@ -170,6 +194,17 @@ components:
         country:
           type: string
 
+    ApiResponse:
+      type: object
+      properties:
+        http_code:
+          type: integer
+        message:
+          type: string
+        data:
+          type: object
+        metadata:
+          type: object
   # Reusable path, query, header and cookie parameters
   #parameters: ...
 
