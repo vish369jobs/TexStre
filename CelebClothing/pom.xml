@@ -35,6 +35,7 @@
 		<jakarta.validation.version>3.1.1</jakarta.validation.version>
 		<lombok.version>1.18.42</lombok.version>
 		<mapstruct.version>1.6.3</mapstruct.version>
+		<commons.beanutils.version>1.11.0</commons.beanutils.version>
 		<maven.compiler.plugin.version>3.14.1</maven.compiler.plugin.version>
 		<openapi.generator.plugin.version>7.16.0</openapi.generator.plugin.version>
 	</properties>
@@ -96,6 +97,11 @@
 			<artifactId>mapstruct-processor</artifactId>
 			<version>${mapstruct.version}</version>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>${commons.beanutils.version}</version>
 		</dependency>
 	</dependencies>
 

@@ -2,11 +2,16 @@ package com.texstre.celebclothing.service;
 
 import com.texstre.celebclothing.entity.UserDetails;
 import com.texstre.celebclothing.repository.UserDetailsRepository;
+import com.texstre.celebclothing.util.NullAwareBeanUtilsBean;
 import com.texstre.celebclothing.util.UserMapper;
 import com.texstre.model.UserDTO;
+import org.apache.commons.beanutils.BeanUtilsBean;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Optional;
 
 @Service
@@ -40,13 +45,19 @@ public class UserService {
         return userMapper.userDetailsToUserDTO(userRepo.findOneByContactNum(phoneNum).orElse(null));
     }
 
-    public String updateUser(UserDTO updUsr) {
+    @Transactional
+    public UserDetails updateUser(UserDTO updUsr) {
         Optional<UserDetails> usr = userRepo.findOneByContactNum(updUsr.getContactNum());
         if(usr.isPresent()) {
-            usr.get().setUserName(updUsr.getName());
-            usr.get().setGender(updUsr.getGender());
-            userRepo.save(usr.get());
+            BeanUtilsBean nullAwareBeanUtils = new NullAwareBeanUtilsBean();
+            try {
+                UserDetails updUsrEntity = userMapper.userDTOToUserDetails(updUsr);
+                nullAwareBeanUtils.copyProperties(updUsrEntity, usr.get());
+                return userRepo.save(updUsrEntity);
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                throw new RuntimeException(e);
+            }
         }
-        return "Success";
+        return null;
     }
 }

@@ -55,8 +55,16 @@ paths:
     put:
       summary: Update details of existing User
       operationId: updateUser
+      parameters:
+        - in: path
+          name: userPhoneNum
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+            description: The Phone or contact number identifier of the user.
       requestBody:
-        description: Update additional details a User
+        description: Update additional details of a User
         required: true
         content:
           application/json:
@@ -65,6 +73,10 @@ paths:
       responses:
         "201":
           description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
 
   /products:
     post:

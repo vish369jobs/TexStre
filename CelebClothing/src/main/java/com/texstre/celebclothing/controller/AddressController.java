@@ -33,7 +33,7 @@ public class AddressController implements AddressesApi {
             resp.setHttpCode(HttpURLConnection.HTTP_NO_CONTENT);
         }
         resp.setData(delAddresses);
-        
+
         return new ResponseEntity<>(resp, HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));
     }
 }

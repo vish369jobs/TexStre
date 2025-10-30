@@ -35,12 +35,16 @@ public class UserController implements UsersApi {
     }
 
     @Override
-    public ResponseEntity<Void> updateUser(UserDTO updUser) {
+    public ResponseEntity<ApiResponseDTO> updateUser(Integer usrPhoneNum, UserDTO updUser) {
         ApiResponseDTO resp = new ApiResponseDTO();
-        System.out.println(usrService.updateUser(updUser));
-        //return new ResponseEntity<>(resp, HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));
+        resp.setHttpCode(HttpURLConnection.HTTP_CREATED);
+        updUser.setContactNum(usrPhoneNum);
+        resp.setData(usrService.updateUser(updUser));
+        // If not Data found for updation
+        if(resp.getData() == null) {
+            resp.setHttpCode(HttpURLConnection.HTTP_NO_CONTENT);
+        }
 
-        return new ResponseEntity<>(HttpStatusCode.valueOf(HttpURLConnection.HTTP_NO_CONTENT));
-
+        return new ResponseEntity<>(resp, HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));
     }
 }

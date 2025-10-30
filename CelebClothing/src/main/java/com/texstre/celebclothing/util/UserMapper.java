@@ -25,8 +25,12 @@ public interface UserMapper{
 
     // Method for DTO to Entity conversion
     @BeanMapping(ignoreByDefault = true) // Ignore all fields by default
+    @Mapping(target = "idUserDetails", source = "userId")
     @Mapping(target = "contactNum", source = "contactNum")
-    @Mapping(target = "userName", source = "name")
+    @Mapping(target = "emailId", source = "email")
     @Mapping(target = "gender", source = "gender")
+    @Mapping(target = "profilePicUrl", source = "profilePicURL")
+    @Mapping(target = "userName", source = "name")
+    @Mapping(target = "userType", source = "userType")
     UserDetails userDTOToUserDetails(UserDTO userDto);
 }
