@@ -26,8 +26,18 @@ public class UserService {
         userRepo.save(usrDetails);
     }
 
+    public void createUserByPhone(Integer phoneNum) {
+        // Create a NEW User, if the provided phone number does not exist
+        if(userRepo.findOneByContactNum(phoneNum).isEmpty()) {
+            UserDetails usrDetails = UserDetails.builder()
+                    .contactNum(phoneNum)
+                    .build();
+            userRepo.save(usrDetails);
+        }
+    }
+
     public UserDTO getUserByPhone(Integer phoneNum) {
-        return userMapper.userDetailsToUserDTO(userRepo.findOneByContactNum(phoneNum).orElse(new UserDetails()));
+        return userMapper.userDetailsToUserDTO(userRepo.findOneByContactNum(phoneNum).orElse(null));
     }
 
     public String updateUser(UserDTO updUsr) {

@@ -35,7 +35,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/User"
+                $ref: "#/components/schemas/ApiResponse"
   /users:
     post:
       summary: Add a new User
@@ -148,11 +148,19 @@ components:
     User:
       type: object
       properties:
+        userId:
+          type: integer
         contactNum:
           type: integer
-        name:
+        email:
           type: string
         gender:
+          type: string
+        profilePicURL:
+          type: string
+        name:
+          type: string
+        userType:
           type: string
 
     Product:

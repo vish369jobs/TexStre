@@ -5,6 +5,7 @@ import com.texstre.celebclothing.repository.UserDetailsRepository;
 import com.texstre.celebclothing.response.ApiResponse;
 import com.texstre.celebclothing.service.OtpService;
 import com.texstre.celebclothing.service.SmsService;
+import com.texstre.celebclothing.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +27,7 @@ public class OtpController {
     private SmsService smsService;
 
     @Autowired
-    private UserDetailsRepository userRepo;
+    UserService usrService;
 
     @PostMapping("/send/sms")
     public ResponseEntity<ApiResponse<String>> sendOtpSms(@RequestParam String phoneNum) {
@@ -58,18 +59,17 @@ public class OtpController {
     public ResponseEntity<ApiResponse<String>> verifyOtp(@RequestParam String key, @RequestParam String otp) {
         int status = HttpURLConnection.HTTP_NO_CONTENT;
         String msg = "Invalid OTP";
-        String usrDetailsObj = "";
-        // Return the User Details object, If OTP verification is SUCCESSFUL
+        // If OTP verification is SUCCESSFUL, Create the User (if not present in DB)
         if(otpService.validateOtp(key, otp) ) {
             status = HttpURLConnection.HTTP_OK;
             msg = "OTP Verified Successfully";
-            usrDetailsObj = userRepo.findOneByContactNum(Integer.parseInt(key)).toString();
+            usrService.createUserByPhone(Integer.parseInt(key));
         }
 
         ApiResponse<String> resp = new ApiResponse<>(
                 status,
                 msg,
-                usrDetailsObj,
+                null,
                 null
         );
         return ResponseEntity.ok(resp);
