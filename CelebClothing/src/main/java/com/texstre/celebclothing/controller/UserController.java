@@ -18,7 +18,6 @@ public class UserController implements UsersApi {
 
     @Override
     public ResponseEntity<Void> createUser(UserDTO user) {
-        System.out.println("Create User API called with USER " + user.toString());
         usrService.addUser(user);
         return new ResponseEntity<>(HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));
     }
@@ -37,11 +36,11 @@ public class UserController implements UsersApi {
 
     @Override
     public ResponseEntity<Void> updateUser(UserDTO updUser) {
-        System.out.println("updateUser API called");
+        ApiResponseDTO resp = new ApiResponseDTO();
         System.out.println(usrService.updateUser(updUser));
-        return new ResponseEntity<>(HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));
+        //return new ResponseEntity<>(resp, HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));
 
-//        return new ResponseEntity<>(HttpStatusCode.valueOf(HttpURLConnection.HTTP_NO_CONTENT));
+        return new ResponseEntity<>(HttpStatusCode.valueOf(HttpURLConnection.HTTP_NO_CONTENT));
 
     }
 }
