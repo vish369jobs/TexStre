@@ -1,4 +1,5 @@
-/legal/tandc:
+# TERMS & CONDITIONS API
+tandc:
   get:
     summary: To provide Terms And Conditions as Response
     operationId: retrieveTermsAndConditions
@@ -8,9 +9,10 @@
         content:
           application/json:
             schema:
-              $ref: "./schemas/ApiResponse.yaml#/ApiResponse"
+              $ref: "#/components/schemas/ApiResponse"
 
-/legal/privacy_policy:
+# PRIVACY POLICY API
+privacy_policy:
   get:
     summary: To provide Privacy Policy as Response
     operationId: retrievePrivacyPolicy
@@ -20,4 +22,4 @@
         content:
           application/json:
             schema:
-              $ref: "./schemas/ApiResponse.yaml#/ApiResponse"
+              $ref: "#/components/schemas/ApiResponse"

@@ -1,9 +1,17 @@
 User:
   type: object
   properties:
-    id:
+    userId:
       type: integer
+    contactNum:
+      type: string
+    email:
+      type: string
+    gender:
+      type: string
+    profilePicURL:
+      type: string
     name:
       type: string
-    Gender:
+    userType:
       type: string

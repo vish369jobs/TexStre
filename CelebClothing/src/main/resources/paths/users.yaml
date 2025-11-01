@@ -1,0 +1,64 @@
+# ADD/CREATE User API
+add_user:
+  post:
+    summary: Add a new User
+    operationId: createUser
+    requestBody:
+      description: Create a new User using Phone number
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/User"
+    responses:
+      "201":
+        description: Created
+
+# GET User API
+get_user:
+  get:
+    summary: Get a user by Phone number
+    operationId: fetchUserByPhoneNum
+    parameters:
+      - in: path
+        name: phoneNum
+        required: true
+        schema:
+          type: string
+          minimum: 1
+          description: The Phone or contact number identifier of the user.
+    responses:
+      "200":
+        description: A single user with the given phone number.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiResponse"
+
+# UPDATE User API
+update_user:
+    put:
+      summary: Update details of existing User
+      operationId: updateUser
+      parameters:
+        - in: path
+          name: userPhoneNum
+          required: true
+          schema:
+            type: string
+            minimum: 1
+            description: The Phone or contact number identifier of the user.
+      requestBody:
+        description: Update additional details of a User
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+      responses:
+        "201":
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
