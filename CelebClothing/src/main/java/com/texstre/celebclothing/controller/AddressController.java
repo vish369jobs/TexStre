@@ -41,14 +41,15 @@ public class AddressController implements AddressesApi {
     }
 
     @Override
-    public ResponseEntity<ApiResponseDTO> updAddressesByAddressId(Long addressId) {
+    public ResponseEntity<ApiResponseDTO> updAddressByAddressId(Long addressId, DeliveryAddressDTO updAddress) {
         ApiResponseDTO resp = new ApiResponseDTO();
         resp.setHttpCode(HttpURLConnection.HTTP_ACCEPTED);
-        List<DeliveryAddress> delAddresses = addressService.getAllDeliveryAddresses(addressId.toString());
-        if(delAddresses.isEmpty()) {
+        updAddress.setAddressId(addressId);
+        resp.setData(addressService.updateAddress(updAddress));
+        // If not Data found for updation
+        if(resp.getData() == null) {
             resp.setHttpCode(HttpURLConnection.HTTP_NO_CONTENT);
         }
-        resp.setData(delAddresses);
 
         return new ResponseEntity<>(resp, HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));
     }

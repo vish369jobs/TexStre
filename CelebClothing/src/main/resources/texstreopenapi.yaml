@@ -135,7 +135,7 @@ paths:
   /addresses/{addressId}:
     put:
       summary: Update a delivery address by addressId
-      operationId: updAddressesByAddressId
+      operationId: updAddressByAddressId
       parameters:
         - in: path
           name: addressId
@@ -145,6 +145,13 @@ paths:
             format: int64
             minimum: 1
             description: The identifier for the address.
+      requestBody:
+        description: Update additional details of a Delivery Address
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeliveryAddress"
       responses:
         "200":
           description: Update the delivery address for the given addressId
