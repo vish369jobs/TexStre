@@ -23,7 +23,7 @@ public class UserController implements UsersApi {
     }
 
     @Override
-    public ResponseEntity<ApiResponseDTO> fetchUserByPhoneNum(Integer phoneNum) {
+    public ResponseEntity<ApiResponseDTO> fetchUserByPhoneNum(String phoneNum) {
         ApiResponseDTO resp = new ApiResponseDTO();
         resp.setData(usrService.getUserByPhone(phoneNum));
         resp.setHttpCode(HttpURLConnection.HTTP_OK);
@@ -35,9 +35,9 @@ public class UserController implements UsersApi {
     }
 
     @Override
-    public ResponseEntity<ApiResponseDTO> updateUser(Integer usrPhoneNum, UserDTO updUser) {
+    public ResponseEntity<ApiResponseDTO> updateUser(String usrPhoneNum, UserDTO updUser) {
         ApiResponseDTO resp = new ApiResponseDTO();
-        resp.setHttpCode(HttpURLConnection.HTTP_CREATED);
+        resp.setHttpCode(HttpURLConnection.HTTP_ACCEPTED);
         updUser.setContactNum(usrPhoneNum);
         resp.setData(usrService.updateUser(updUser));
         // If not Data found for updation

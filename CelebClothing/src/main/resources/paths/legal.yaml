@@ -1,0 +1,23 @@
+/legal/tandc:
+  get:
+    summary: To provide Terms And Conditions as Response
+    operationId: retrieveTermsAndConditions
+    responses:
+      "200":
+        description: Terms and Conditions data from the file TermsAndConditions.txt
+        content:
+          application/json:
+            schema:
+              $ref: "./schemas/ApiResponse.yaml#/ApiResponse"
+
+/legal/privacy_policy:
+  get:
+    summary: To provide Privacy Policy as Response
+    operationId: retrievePrivacyPolicy
+    responses:
+      "200":
+        description: Privacy policy data from the file PrivacyPolicy.txt
+        content:
+          application/json:
+            schema:
+              $ref: "./schemas/ApiResponse.yaml#/ApiResponse"

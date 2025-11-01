@@ -16,6 +16,7 @@ public class AddressService {
         DeliveryAddress deliveryAdd = DeliveryAddress.builder()
                 .linkedUsrId(delAddressDTO.getUserId())
                 .contactName(delAddressDTO.getContactName())
+                .contactNum(delAddressDTO.getContactNum())
                 .addressLine1(delAddressDTO.getAddressLine1())
                 .addressLine2(delAddressDTO.getAddressLine2())
                 .city(delAddressDTO.getCity())

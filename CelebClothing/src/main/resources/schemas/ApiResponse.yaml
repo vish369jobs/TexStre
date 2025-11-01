@@ -1,0 +1,11 @@
+ApiResponse:
+  type: object
+  properties:
+    http_code:
+      type: integer
+    message:
+      type: string
+    data:
+      type: object
+    metadata:
+      type: object

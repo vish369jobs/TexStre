@@ -26,7 +26,7 @@ paths:
           name: phoneNum
           required: true
           schema:
-            type: integer
+            type: string
             minimum: 1
             description: The Phone or contact number identifier of the user.
       responses:
@@ -60,7 +60,7 @@ paths:
           name: userPhoneNum
           required: true
           schema:
-            type: integer
+            type: string
             minimum: 1
             description: The Phone or contact number identifier of the user.
       requestBody:
@@ -107,6 +107,10 @@ paths:
       responses:
         "201":
           description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
 
   /addresses/{userId}:
     get:
@@ -161,7 +165,7 @@ components:
         userId:
           type: integer
         contactNum:
-          type: integer
+          type: string
         email:
           type: string
         gender:
@@ -198,6 +202,8 @@ components:
         userId:
           type: integer
         contactName:
+          type: string
+        contactNum:
           type: string
         addressLine1:
           type: string

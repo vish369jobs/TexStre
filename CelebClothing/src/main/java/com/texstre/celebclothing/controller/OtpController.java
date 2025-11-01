@@ -63,7 +63,7 @@ public class OtpController {
         if(otpService.validateOtp(key, otp) ) {
             status = HttpURLConnection.HTTP_OK;
             msg = "OTP Verified Successfully";
-            usrService.createUserByPhone(Integer.parseInt(key));
+            usrService.createUserByPhone(key);
         }
 
         ApiResponse<String> resp = new ApiResponse<>(

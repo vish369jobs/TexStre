@@ -24,7 +24,7 @@ public class UserDetails {
     @Column(name = "user_name")
     private String userName;
     @Column(name = "contact_num")
-    private Integer contactNum;
+    private String contactNum;
     @Column(name = "profile_pic_url")
     private String profilePicUrl;
     @Column(name = "gender")

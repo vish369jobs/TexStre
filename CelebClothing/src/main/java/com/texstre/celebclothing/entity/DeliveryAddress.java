@@ -21,6 +21,8 @@ public class DeliveryAddress {
     private Integer linkedUsrId;
     @Column(name = "contact_name")
     private String contactName;
+    @Column(name = "contact_num")
+    private String contactNum;
     @Column(name = "address_line1")
     private String addressLine1;
     @Column(name = "address_line2")

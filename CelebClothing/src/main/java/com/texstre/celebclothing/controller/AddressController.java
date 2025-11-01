@@ -19,9 +19,12 @@ public class AddressController implements AddressesApi {
     AddressService addressService;
 
     @Override
-    public ResponseEntity<Void> createDeliveryAddress(DeliveryAddressDTO deliveryAddressDTO) {
+    public ResponseEntity<ApiResponseDTO> createDeliveryAddress(DeliveryAddressDTO deliveryAddressDTO) {
+        ApiResponseDTO resp = new ApiResponseDTO();
         addressService.addDeliveryAddress(deliveryAddressDTO);
-        return null;
+        resp.setHttpCode(HttpURLConnection.HTTP_CREATED);
+        resp.setMessage("Delivery Address Added Successfully");
+        return new ResponseEntity<>(resp, HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));
     }
 
     @Override
