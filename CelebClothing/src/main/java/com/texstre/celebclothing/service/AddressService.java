@@ -6,6 +6,7 @@ import com.texstre.model.DeliveryAddressDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AddressService {
@@ -29,6 +30,14 @@ public class AddressService {
 
     public List<DeliveryAddress> getAllDeliveryAddresses(String userId) {
         return addressRepo.findByLinkedUsrId(userId);
+    }
+
+    public void removeDeliveryAddress(Long addressId) {
+        addressRepo.deleteById(addressId);
+    }
+
+    public DeliveryAddress getDeliveryAddressById(Long addressId) {
+        return addressRepo.findById(addressId).orElse(null);
     }
 }
 

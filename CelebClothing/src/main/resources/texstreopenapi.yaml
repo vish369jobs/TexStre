@@ -132,6 +132,48 @@ paths:
               schema:
                   $ref: "#/components/schemas/ApiResponse"
 
+  /addresses/{addressId}:
+    put:
+      summary: Update a delivery address by addressId
+      operationId: updAddressesByAddressId
+      parameters:
+        - in: path
+          name: addressId
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+            description: The identifier for the address.
+      responses:
+        "200":
+          description: Update the delivery address for the given addressId
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
+
+  /addresses/{addressIdToDel}:
+    delete:
+      summary: Delete a delivery address by addressId
+      operationId: deleteAddressesById
+      parameters:
+        - in: path
+          name: addressIdToDel
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+            description: The identifier for the address.
+      responses:
+        "200":
+          description: Delete the delivery address indicated by deleteAddressesById
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiResponse"
+
   /legal/tandc:
     get:
       summary: To provide Terms And Conditions as Response
@@ -199,6 +241,7 @@ components:
       properties:
         addressId:
           type: integer
+          format: int64
         userId:
           type: integer
         contactName:

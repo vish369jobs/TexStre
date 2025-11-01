@@ -39,4 +39,33 @@ public class AddressController implements AddressesApi {
 
         return new ResponseEntity<>(resp, HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));
     }
+
+    @Override
+    public ResponseEntity<ApiResponseDTO> updAddressesByAddressId(Long addressId) {
+        ApiResponseDTO resp = new ApiResponseDTO();
+        resp.setHttpCode(HttpURLConnection.HTTP_ACCEPTED);
+        List<DeliveryAddress> delAddresses = addressService.getAllDeliveryAddresses(addressId.toString());
+        if(delAddresses.isEmpty()) {
+            resp.setHttpCode(HttpURLConnection.HTTP_NO_CONTENT);
+        }
+        resp.setData(delAddresses);
+
+        return new ResponseEntity<>(resp, HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));
+    }
+
+    @Override
+    public ResponseEntity<ApiResponseDTO> deleteAddressesById(Long addressIdToDel) {
+        ApiResponseDTO resp = new ApiResponseDTO();
+        resp.setHttpCode(HttpURLConnection.HTTP_NO_CONTENT);
+        resp.setData(addressService.getDeliveryAddressById(addressIdToDel));
+        addressService.removeDeliveryAddress(addressIdToDel);
+        if(resp.getData() == null ) {
+           resp.setMessage("Data NOT FOUND for the given AddressId");
+        }
+        else {
+           resp.setMessage("Address DELETED Successfully");
+        }
+
+        return new ResponseEntity<>(resp, HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));
+    }
 }
