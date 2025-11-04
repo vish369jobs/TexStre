@@ -23,8 +23,16 @@ public class ProductDetails {
     private Long productId;
     @Column(name = "product_name")
     private String productName;
+    @Column(name = "product_size")
+    private String productSize;
+    @Column(name = "product_colour")
+    private String productColour;
     @Column(name = "fabric")
     private String fabric;
+    @Column(name = "prod_short_desc")
+    private String prodShortDesc;
+    @Column(name = "prod_long_desc")
+    private String prodLongDesc;
     @Column(name = "base_price")
     private BigDecimal basePrice;
     @Column(name = "selling_price")
@@ -41,6 +49,5 @@ public class ProductDetails {
     @Column(name = "is_valid", nullable=false)
     @ColumnDefault("1")
     private boolean isValid;
-
 }
 

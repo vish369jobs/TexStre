@@ -17,24 +17,20 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name="user_details")
-public class UserDetails {
+@Table(name="boutique_details")
+public class BoutiqueDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "iduser_details")
-    private Long idUserDetails;
-    @Column(name = "user_type")
-    private String userType;
-    @Column(name = "user_name")
-    private String userName;
-    @Column(name = "contact_num")
-    private String contactNum;
-    @Column(name = "profile_pic_url")
-    private String profilePicUrl;
-    @Column(name = "gender")
-    private String gender;
-    @Column(name = "email_id")
-    private String emailId;
+    @Column(name = "botiq_id")
+    private Long botiqId;
+    @Column(name = "botiq_name")
+    private String botiqName;
+    @Column(name = "botiq_rating")
+    private Float botiqRating;
+    @Column(name = "botiq_followers_cnt")
+    private Long botiqFollowersCnt;
+    @Column(name = "botiq_products_cnt")
+    private Long botiqProductsCnt;
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
@@ -42,7 +38,8 @@ public class UserDetails {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
     @NotNull
-    @Column(name = "is_valid", nullable = false)
+    @Column(name = "is_valid", nullable=false)
     @ColumnDefault("1")
     private boolean isValid;
 }
+
