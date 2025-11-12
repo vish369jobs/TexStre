@@ -1,0 +1,37 @@
+# ADD/CREATE BotiQ API
+add_botiq:
+  post:
+    summary: Add a new Boutique
+    operationId: createBotiq
+    requestBody:
+      description: Create a new Boutique using the given details
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/BotiQ"
+    responses:
+      "201":
+        description: Created Boutique
+
+# GET BotiQ Details API
+get_botiq_details:
+  get:
+    summary: Get Boutique details by BotiQ ID
+    operationId: fetchBotiqById
+    parameters:
+      - in: path
+        name: botiqId
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+          description: The identifier of the Boutique.
+    responses:
+      "200":
+        description: A single Boutique with the given Id.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiResponse"

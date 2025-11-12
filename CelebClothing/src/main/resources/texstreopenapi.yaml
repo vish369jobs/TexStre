@@ -24,6 +24,11 @@ paths:
   /users/{userPhoneNum}:
     $ref: './paths/users.yaml#update_user'
 
+  /botiqs:
+    $ref: './paths/botiqs.yaml#add_botiq'
+  /botiqs/{botiqId}:
+    $ref: './paths/botiqs.yaml#get_botiq_details'
+
   /products:
     $ref: './paths/products.yaml#add_product'
 
@@ -46,6 +51,8 @@ components:
   schemas:
     User:
       $ref: './components/schemas/user.yaml#User'
+    BotiQ:
+      $ref: './components/schemas/BotiQ.yaml#BotiQ'
     Product:
       $ref: './components/schemas/product.yaml#Product'
     DeliveryAddress:

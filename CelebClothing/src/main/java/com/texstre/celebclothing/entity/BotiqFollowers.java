@@ -13,21 +13,19 @@ import org.hibernate.annotations.ColumnDefault;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name="boutique_products")
-public class BoutiqueProducts {
+@Table(name="boutique_followers")
+public class BotiqFollowers {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "botiq_product_id")
-    private Long botiqProdId;
+    @Column(name = "botiq_follower_id")
+    private Long botiqFollowId;
     @Column(name = "botiq_id")
     private String botiqId;
-    @Column(name = "product_id")
-    private String productId;
-    @Column(name = "product_category")
-    private String productCategory;
+    @Column(name = "follower_user_id")
+    private String followUserId;
     @NotNull
-    @Column(name = "is_valid", nullable=false)
-    @ColumnDefault("1")
-    private boolean isValid;
+    @Column(name = "is_following", nullable=false)
+    @ColumnDefault("0")
+    private boolean isFollowing;
 }
 

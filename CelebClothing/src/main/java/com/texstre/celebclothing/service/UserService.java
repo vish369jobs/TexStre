@@ -42,7 +42,7 @@ public class UserService {
     }
 
     public UserDTO getUserByPhone(String phoneNum) {
-        return userMapper.userDetailsToUserDTO(userRepo.findOneByContactNum(phoneNum).orElse(null));
+        return userMapper.UserDetailsToUserDTO(userRepo.findOneByContactNum(phoneNum).orElse(null));
     }
 
     @Transactional
@@ -54,7 +54,7 @@ public class UserService {
                 UserDetails updUsrEntity = existingUsr.get();
                 // Not allowing updation of User ID
                 updatableUsr.setUserId(null);
-                nullAwareBeanUtils.copyProperties(updUsrEntity, userMapper.userDTOToUserDetails(updatableUsr));
+                nullAwareBeanUtils.copyProperties(updUsrEntity, userMapper.UserDTOToUserDetails(updatableUsr));
                 return userRepo.save(updUsrEntity);
             } catch (IllegalAccessException | InvocationTargetException e) {
                 throw new RuntimeException(e);

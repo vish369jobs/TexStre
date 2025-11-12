@@ -1,0 +1,17 @@
+BotiQ:
+  type: object
+  properties:
+    botiqId:
+      type: integer
+      format: int64
+    botiqName:
+      type: string
+    botiqRating:
+      type: number
+      format: float
+    botiqFollowersCnt:
+      type: integer
+      format: int64
+    botiqProductsCnt:
+      type: integer
+      format: int64

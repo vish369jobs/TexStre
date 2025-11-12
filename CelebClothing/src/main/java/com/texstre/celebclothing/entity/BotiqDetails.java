@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 @Table(name="boutique_details")
-public class BoutiqueDetails {
+public class BotiqDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "botiq_id")
@@ -31,6 +31,7 @@ public class BoutiqueDetails {
     private Long botiqFollowersCnt;
     @Column(name = "botiq_products_cnt")
     private Long botiqProductsCnt;
+    // To store the Boutique banner image
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;

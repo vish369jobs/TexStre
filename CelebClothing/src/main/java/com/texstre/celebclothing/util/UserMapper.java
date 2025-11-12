@@ -21,7 +21,7 @@ public interface UserMapper{
     @Mapping(target = "profilePicURL", source = "profilePicUrl")
     @Mapping(target = "name", source = "userName")
     @Mapping(target = "userType", source = "userType")
-    UserDTO userDetailsToUserDTO(UserDetails user);
+    UserDTO UserDetailsToUserDTO(UserDetails user);
 
     // Method for DTO to Entity conversion
     @BeanMapping(ignoreByDefault = true) // Ignore all fields by default
@@ -32,5 +32,5 @@ public interface UserMapper{
     @Mapping(target = "profilePicUrl", source = "profilePicURL")
     @Mapping(target = "userName", source = "name")
     @Mapping(target = "userType", source = "userType")
-    UserDetails userDTOToUserDetails(UserDTO userDto);
+    UserDetails UserDTOToUserDetails(UserDTO userDto);
 }
