@@ -26,6 +26,8 @@ paths:
 
   /botiqs:
     $ref: './paths/botiqs.yaml#add_botiq'
+  /botiqs/all:
+    $ref: './paths/botiqs.yaml#get_all_botiqs'
   /botiqs/{botiqId}:
     $ref: './paths/botiqs.yaml#get_botiq_details'
 

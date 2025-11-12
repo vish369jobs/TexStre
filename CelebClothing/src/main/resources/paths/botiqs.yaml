@@ -14,6 +14,19 @@ add_botiq:
       "201":
         description: Created Boutique
 
+# GET All BotiQs API
+get_all_botiqs:
+  get:
+    summary: Get List of Boutiques
+    operationId: fetchAllBotiqs
+    responses:
+      "200":
+        description: A List of Boutiques
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiResponse"
+
 # GET BotiQ Details API
 get_botiq_details:
   get:

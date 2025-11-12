@@ -26,6 +26,18 @@ public class BotiqDetailsController implements BotiqsApi {
     }
 
     @Override
+    public ResponseEntity<ApiResponseDTO> fetchAllBotiqs() {
+        ApiResponseDTO resp = new ApiResponseDTO();
+        resp.setData(botiqDetailsService.getAllBoutiques());
+        resp.setHttpCode(HttpURLConnection.HTTP_OK);
+        // Overwrite the http code , when there is NO DATA
+        if(resp.getData() == null) {
+            resp.setHttpCode(HttpURLConnection.HTTP_NO_CONTENT);
+        }
+        return new ResponseEntity<>(resp, HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));
+    }
+
+    @Override
     public ResponseEntity<ApiResponseDTO> fetchBotiqById(Long botiqId) {
         ApiResponseDTO resp = new ApiResponseDTO();
         resp.setData(botiqDetailsService.getBoutiqueDetailsById(botiqId));

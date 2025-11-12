@@ -15,6 +15,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -35,8 +37,15 @@ public class BotiqDetailsService {
         botiqRepo.save(botiqDetails);
     }
 
+    public List<BotiQDTO> getAllBoutiques() {
+        List<BotiQDTO> botiqsList = new ArrayList<>();
+        for(BotiqDetails botiqDetail : botiqRepo.findAll()) {
+            botiqsList.add(botiqDetailsMapper.BotiqDetailsToBotiQDTO(botiqDetail));
+        }
+        return botiqsList;
+    }
+
     public BotiQDTO getBoutiqueDetailsById(Long botiqId) {
         return botiqDetailsMapper.BotiqDetailsToBotiQDTO(botiqRepo.findById(botiqId).orElse(null));
     }
-
 }
