@@ -6,6 +6,8 @@ BotiQ:
       format: int64
     botiqName:
       type: string
+    botiqBannerImg:
+      type: string
     botiqRating:
       type: number
       format: float

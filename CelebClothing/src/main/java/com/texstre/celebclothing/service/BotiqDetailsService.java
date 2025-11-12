@@ -30,6 +30,7 @@ public class BotiqDetailsService {
     public void addBoutique(BotiQDTO botiq) {
         BotiqDetails botiqDetails = BotiqDetails.builder()
                 .botiqName(botiq.getBotiqName())
+                .botiqBannerImg(botiq.getBotiqBannerImg())
                 .botiqRating(botiq.getBotiqRating())
                 .botiqFollowersCnt(botiq.getBotiqFollowersCnt())
                 .botiqProductsCnt(botiq.getBotiqProductsCnt())

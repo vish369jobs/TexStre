@@ -25,13 +25,14 @@ public class BotiqDetails {
     private Long botiqId;
     @Column(name = "botiq_name")
     private String botiqName;
+    @Column(name = "botiq_banner_img")
+    private String botiqBannerImg;
     @Column(name = "botiq_rating")
     private Float botiqRating;
     @Column(name = "botiq_followers_cnt")
     private Long botiqFollowersCnt;
     @Column(name = "botiq_products_cnt")
     private Long botiqProductsCnt;
-    // To store the Boutique banner image
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;

@@ -18,6 +18,7 @@ public interface BotiqDetailsMapper {
     @BeanMapping(ignoreByDefault = true) // Ignore all fields by default
     @Mapping(target = "botiqId", source = "botiqId")
     @Mapping(target = "botiqName", source = "botiqName")
+    @Mapping(target = "botiqBannerImg", source = "botiqBannerImg")
     @Mapping(target = "botiqRating", source = "botiqRating")
     @Mapping(target = "botiqFollowersCnt", source = "botiqFollowersCnt")
     @Mapping(target = "botiqProductsCnt", source = "botiqProductsCnt")
@@ -27,6 +28,7 @@ public interface BotiqDetailsMapper {
     @BeanMapping(ignoreByDefault = true) // Ignore all fields by default
     @Mapping(target = "botiqId", source = "botiqId")
     @Mapping(target = "botiqName", source = "botiqName")
+    @Mapping(target = "botiqBannerImg", source = "botiqBannerImg")
     @Mapping(target = "botiqRating", source = "botiqRating")
     @Mapping(target = "botiqFollowersCnt", source = "botiqFollowersCnt")
     @Mapping(target = "botiqProductsCnt", source = "botiqProductsCnt")
