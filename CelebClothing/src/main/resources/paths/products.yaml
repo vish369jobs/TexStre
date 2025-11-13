@@ -17,16 +17,36 @@ add_product:
         description: Product already exists
 
 # GET Products List API
-product_list:
+products_list:
   get:
     summary: Get a list of products
+    operationId: fetchAllProducts
     responses:
       '200':
-        description: Audit scores data
+        description: Products List data
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/Product'
+              $ref: "#/components/schemas/ApiResponse"
 
+# GET Product Details API
+get_product_details:
+  get:
+    summary: Get Product details by Product ID
+    operationId: fetchProductById
+    parameters:
+      - in: path
+        name: productId
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+          description: The identifier of the Product.
+    responses:
+      "200":
+        description: A single Product with the given Id.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiResponse"

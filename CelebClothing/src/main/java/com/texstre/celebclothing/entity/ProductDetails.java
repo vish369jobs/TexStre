@@ -34,13 +34,13 @@ public class ProductDetails {
     @Column(name = "prod_long_desc")
     private String prodLongDesc;
     @Column(name = "base_price")
-    private BigDecimal basePrice;
+    private Float basePrice;
     @Column(name = "selling_price")
-    private BigDecimal sellingPrice;
+    private Float sellingPrice;
     @Column(name = "discount_percent")
-    private Long discPercent;
+    private Float discPercent;
     @Column(name = "discounted_price")
-    private BigDecimal discountedPrice;
+    private Float discountedPrice;
     @NotNull
     @Column(name = "apply_discount", nullable=false)
     @ColumnDefault("0")

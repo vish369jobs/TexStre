@@ -15,7 +15,7 @@ add_botiq:
         description: Created Boutique
 
 # GET All BotiQs API
-get_all_botiqs:
+botiqs_list:
   get:
     summary: Get List of Boutiques
     operationId: fetchAllBotiqs

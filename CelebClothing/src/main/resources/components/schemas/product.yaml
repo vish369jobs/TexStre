@@ -1,16 +1,30 @@
 Product:
   type: object
   properties:
+    productId:
+      type: integer
+      format: int64
     productName:
+      type: string
+    productSize:
+      type: string
+    productColour:
       type: string
     fabric:
       type: string
+    shortDesc:
+      type: string
+    longDesc:
+      type: string
     basePrice:
       type: number
+      format: float
     sellPrice:
       type: number
+      format: float
     discPrice:
       type: number
+      format: float
     discPercent:
-      type: integer
-      format: int64
+      type: number
+      format: float

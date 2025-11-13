@@ -27,12 +27,16 @@ paths:
   /botiqs:
     $ref: './paths/botiqs.yaml#add_botiq'
   /botiqs/all:
-    $ref: './paths/botiqs.yaml#get_all_botiqs'
+    $ref: './paths/botiqs.yaml#botiqs_list'
   /botiqs/{botiqId}:
     $ref: './paths/botiqs.yaml#get_botiq_details'
 
   /products:
     $ref: './paths/products.yaml#add_product'
+  /products/{productId}:
+    $ref: './paths/products.yaml#get_product_details'
+  /products/all:
+    $ref: './paths/products.yaml#products_list'
 
   /addresses:
     $ref: './paths/addresses.yaml#add_address'
