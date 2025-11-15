@@ -1,8 +1,6 @@
 package com.texstre.celebclothing.util;
 
-import com.texstre.celebclothing.entity.BotiqDetails;
 import com.texstre.celebclothing.entity.ProductDetails;
-import com.texstre.model.BotiQDTO;
 import com.texstre.model.ProductDTO;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;

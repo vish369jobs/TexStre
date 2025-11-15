@@ -1,12 +1,9 @@
 package com.texstre.celebclothing.controller;
 
 import com.texstre.api.BotiqsApi;
-import com.texstre.api.UsersApi;
 import com.texstre.celebclothing.service.BotiqDetailsService;
-import com.texstre.celebclothing.service.UserService;
 import com.texstre.model.ApiResponseDTO;
 import com.texstre.model.BotiQDTO;
-import com.texstre.model.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;

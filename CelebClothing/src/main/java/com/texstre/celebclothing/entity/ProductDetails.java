@@ -8,8 +8,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 
-import java.math.BigDecimal;
-
 @Entity
 @Data
 @NoArgsConstructor

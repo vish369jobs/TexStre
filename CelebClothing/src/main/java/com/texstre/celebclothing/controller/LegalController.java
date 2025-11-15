@@ -1,16 +1,11 @@
 package com.texstre.celebclothing.controller;
 
 import com.texstre.api.LegalApi;
-import com.texstre.celebclothing.CelebClothingApplication;
 import com.texstre.model.ApiResponseDTO;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.nio.charset.StandardCharsets;

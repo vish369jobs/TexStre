@@ -1,11 +1,8 @@
 package com.texstre.celebclothing.controller;
 
-import com.texstre.api.ProductsApi;
 import com.texstre.api.RateReviewApi;
-import com.texstre.celebclothing.service.ProductService;
 import com.texstre.celebclothing.service.RatingReviewService;
 import com.texstre.model.ApiResponseDTO;
-import com.texstre.model.ProductDTO;
 import com.texstre.model.RatingReviewDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;

@@ -1,7 +1,5 @@
 package com.texstre.celebclothing.controller;
 
-import com.texstre.celebclothing.entity.UserDetails;
-import com.texstre.celebclothing.repository.UserDetailsRepository;
 import com.texstre.celebclothing.response.ApiResponse;
 import com.texstre.celebclothing.service.OtpService;
 import com.texstre.celebclothing.service.SmsService;
@@ -11,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.HttpURLConnection;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/otp")

@@ -6,7 +6,6 @@ import com.texstre.celebclothing.util.NullAwareBeanUtilsBean;
 import com.texstre.celebclothing.util.UserMapper;
 import com.texstre.model.UserDTO;
 import org.apache.commons.beanutils.BeanUtilsBean;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

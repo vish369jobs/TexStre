@@ -1,12 +1,8 @@
 package com.texstre.celebclothing.service;
 
 import com.texstre.celebclothing.entity.BotiqProducts;
-import com.texstre.celebclothing.entity.ProductRatingsReviews;
 import com.texstre.celebclothing.repository.BotiqProductsRepository;
-import com.texstre.celebclothing.repository.RatingReviewRepository;
-import com.texstre.celebclothing.util.RatingsReviewsMapper;
 import com.texstre.model.BotiqProductDTO;
-import com.texstre.model.RatingReviewDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

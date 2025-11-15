@@ -1,13 +1,10 @@
 package com.texstre.celebclothing.service;
 
 import com.texstre.celebclothing.entity.DeliveryAddress;
-import com.texstre.celebclothing.entity.UserDetails;
 import com.texstre.celebclothing.repository.AddressRepository;
 import com.texstre.celebclothing.util.AddressMapper;
 import com.texstre.celebclothing.util.NullAwareBeanUtilsBean;
-import com.texstre.celebclothing.util.UserMapper;
 import com.texstre.model.DeliveryAddressDTO;
-import com.texstre.model.UserDTO;
 import org.apache.commons.beanutils.BeanUtilsBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
