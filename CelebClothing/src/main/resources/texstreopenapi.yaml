@@ -38,6 +38,13 @@ paths:
   /products/all:
     $ref: './paths/products.yaml#products_list'
 
+  /rate_review/rating:
+    $ref: './paths/ratings_reviews.yaml#add_rating'
+  /rate_review/review:
+    $ref: './paths/ratings_reviews.yaml#add_review'
+  /rate_review/{productId}:
+    $ref: './paths/ratings_reviews.yaml#get_ratings_reviews'
+
   /addresses:
     $ref: './paths/addresses.yaml#add_address'
   /addresses/{userId}:
@@ -61,6 +68,8 @@ components:
       $ref: './components/schemas/BotiQ.yaml#BotiQ'
     Product:
       $ref: './components/schemas/product.yaml#Product'
+    RatingReview:
+      $ref: './components/schemas/RatingReview.yaml#RatingReview'
     DeliveryAddress:
       $ref: './components/schemas/DeliveryAddress.yaml#DeliveryAddress'
     ApiResponse:

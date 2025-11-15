@@ -1,0 +1,61 @@
+# ADD Product Rating API
+add_rating:
+  post:
+    summary: Add product Rating for a product
+    operationId: createRating
+    requestBody:
+      description: Create a new Rating entry for a Product
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RatingReview'
+    responses:
+      '201':
+        description: Created Product Rating
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiResponse"
+
+# ADD Product Review API
+add_review:
+  post:
+    summary: Add product Review for a product
+    operationId: createReview
+    requestBody:
+      description: Create a new Review entry for a Product
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/RatingReview'
+    responses:
+      '201':
+        description: Created Product Review
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiResponse"
+
+# GET Product Ratings & Reviews API
+get_ratings_reviews:
+  get:
+    summary: Get Ratings and Reviews for a Product ID
+    operationId: fetchRatingsReviewsByProduct
+    parameters:
+      - in: path
+        name: productId
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+          description: The identifier of the Product.
+    responses:
+      "200":
+        description: Returns Ratings and Reviews for the specified Product Id.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiResponse"

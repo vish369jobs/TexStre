@@ -1,0 +1,17 @@
+RatingReview:
+  type: object
+  properties:
+    ratingReviewId:
+      type: integer
+      format: int64
+    productId:
+      type: integer
+      format: int64
+    rating:
+      type: number
+      format: float
+    review:
+      type: string
+    createdById:
+      type: integer
+      format: int64
