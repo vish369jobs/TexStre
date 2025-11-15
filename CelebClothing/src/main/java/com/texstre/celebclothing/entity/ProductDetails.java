@@ -41,6 +41,8 @@ public class ProductDetails {
     private Float discPercent;
     @Column(name = "discounted_price")
     private Float discountedPrice;
+    @Column(name = "product_avg_rating")
+    private Float prodAvgRating;
     @NotNull
     @Column(name = "apply_discount", nullable=false)
     @ColumnDefault("0")

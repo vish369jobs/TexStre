@@ -28,3 +28,6 @@ Product:
     discPercent:
       type: number
       format: float
+    avgRating:
+      type: number
+      format: float

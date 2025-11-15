@@ -32,6 +32,7 @@ public class ProductService {
                 .sellingPrice(productDTO.getSellPrice())
                 .discountedPrice(productDTO.getDiscPrice())
                 .discPercent(productDTO.getDiscPercent())
+                .prodAvgRating(productDTO.getAvgRating())
                 .build();
         productRepo.save(prodItem);
     }

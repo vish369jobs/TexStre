@@ -27,6 +27,7 @@ public interface ProductDetailsMapper {
     @Mapping(target = "sellPrice", source = "sellingPrice")
     @Mapping(target = "discPrice", source = "discountedPrice")
     @Mapping(target = "discPercent", source = "discPercent")
+    @Mapping(target = "avgRating", source = "prodAvgRating")
     ProductDTO ProductDetailsToProductDTO(ProductDetails prodDet);
 
     // Method for DTO to Entity conversion
@@ -42,5 +43,6 @@ public interface ProductDetailsMapper {
     @Mapping(target = "sellingPrice", source = "sellPrice")
     @Mapping(target = "discountedPrice", source = "discPrice")
     @Mapping(target = "discPercent", source = "discPercent")
+    @Mapping(target = "prodAvgRating", source = "avgRating")
     ProductDetails ProductDTOToProductDetails(ProductDTO userDto);
 }
