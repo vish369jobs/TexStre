@@ -12,6 +12,8 @@ RatingReview:
       format: float
     review:
       type: string
+    createdAt:
+      type: string
     createdById:
       type: integer
       format: int64

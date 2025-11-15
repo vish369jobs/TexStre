@@ -18,7 +18,7 @@ public interface RatingsReviewsMapper {
     @Mapping(target = "productId", source = "productId")
     @Mapping(target = "rating", source = "productRating")
     @Mapping(target = "review", source = "productReview")
-    //@Mapping(target = "createDateTime", source = "createdAt")
+    @Mapping(target = "createdAt", source = "createdAt")
     @Mapping(target = "createdById", source = "createdBy")
     RatingReviewDTO ProductRatingsReviewsToRatingReviewDTO(ProductRatingsReviews prodRatingsReviews);
 
@@ -28,7 +28,7 @@ public interface RatingsReviewsMapper {
     @Mapping(target = "productId", source = "productId")
     @Mapping(target = "productRating", source = "rating")
     @Mapping(target = "productReview", source = "review")
-    // @Mapping(target = "createdAt", source = "createDateTime")
+    @Mapping(target = "createdAt", source = "createdAt")
     @Mapping(target = "createdBy", source = "createdById")
     ProductRatingsReviews RatingReviewDTOToProductRatingsReviews(RatingReviewDTO userDto);
 }

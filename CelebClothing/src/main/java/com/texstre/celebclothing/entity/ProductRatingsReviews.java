@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @Data
@@ -25,9 +26,9 @@ public class ProductRatingsReviews {
     private Float productRating;
     @Column(name = "product_review")
     private String productReview;
-    /* @CreationTimestamp
- @Column(name = "created_at", nullable = false, updatable = false)
- private String createdAt;*/
+    @CreationTimestamp
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private String createdAt;
     @Column(name = "created_by")
     private Long createdBy;
     @NotNull
