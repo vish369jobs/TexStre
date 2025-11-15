@@ -20,9 +20,9 @@ public class BotiqProducts {
     @Column(name = "botiq_product_id")
     private Long botiqProdId;
     @Column(name = "botiq_id")
-    private String botiqId;
+    private Long botiqId;
     @Column(name = "product_id")
-    private String productId;
+    private Long productId;
     @Column(name = "product_category")
     private String productCategory;
     @NotNull

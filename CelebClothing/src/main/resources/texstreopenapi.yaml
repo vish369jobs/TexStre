@@ -38,6 +38,13 @@ paths:
   /products/all:
     $ref: './paths/products.yaml#products_list'
 
+  /botiq_products/add:
+    $ref: './paths/botiq_products.yaml#add_product_to_botiq'
+  /botiq_products/remove/{botiqProductId}:
+    $ref: './paths/botiq_products.yaml#remove_product_from_botiq'
+  /botiq_products/all/{botiqId}:
+    $ref: './paths/botiq_products.yaml#get_all_botiq_products'
+
   /rate_review/rating:
     $ref: './paths/ratings_reviews.yaml#add_rating'
   /rate_review/review:
@@ -68,6 +75,8 @@ components:
       $ref: './components/schemas/BotiQ.yaml#BotiQ'
     Product:
       $ref: './components/schemas/product.yaml#Product'
+    BotiqProduct:
+      $ref: './components/schemas/BotiqProduct.yaml#BotiqProduct'
     RatingReview:
       $ref: './components/schemas/RatingReview.yaml#RatingReview'
     DeliveryAddress:

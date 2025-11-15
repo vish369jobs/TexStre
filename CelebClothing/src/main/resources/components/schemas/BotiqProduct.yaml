@@ -1,0 +1,14 @@
+BotiqProduct:
+  type: object
+  properties:
+    botiqProdId:
+      type: integer
+      format: int64
+    botiqId:
+      type: integer
+      format: int64
+    productId:
+      type: integer
+      format: int64
+    prodCategory:
+      type: string

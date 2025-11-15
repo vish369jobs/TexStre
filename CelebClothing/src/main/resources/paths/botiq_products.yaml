@@ -1,0 +1,63 @@
+# ADD a product to Boutique API
+add_product_to_botiq:
+  post:
+    summary: Add a product to a Boutique
+    operationId: addProdToBotiq
+    requestBody:
+      description: Add an existing product to a Boutique
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/BotiqProduct"
+    responses:
+      "201":
+        description: Added a product to Boutique
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiResponse"
+
+# REMOVE a product from Boutique API
+remove_product_from_botiq:
+  delete:
+    summary: Remove a product from Boutique
+    operationId: removeProductFrmBotiq
+    parameters:
+      - in: path
+        name: botiqProductId
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+          description: The identifier of the Product from a Boutique.
+    responses:
+      "200":
+        description: Removed the given product from Boutique
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiResponse"
+
+# GET ALL products in a Boutique API
+get_all_botiq_products:
+  get:
+    summary: Get list of all products in Boutique
+    operationId: fetchAllProductsFromBotiq
+    parameters:
+      - in: path
+        name: botiqId
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+          description: The identifier of the Boutique, for which the list of products needs to be fetched.
+    responses:
+      "200":
+        description: A List of products belonging to a Boutique.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiResponse"
