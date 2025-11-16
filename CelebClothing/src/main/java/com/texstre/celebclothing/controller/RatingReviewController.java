@@ -36,6 +36,9 @@ public class RatingReviewController implements RateReviewApi {
 
     @Override
     public ResponseEntity<ApiResponseDTO> fetchRatingsReviewsByProduct(Long productId) {
-        return RateReviewApi.super.fetchRatingsReviewsByProduct(productId);
+        ApiResponseDTO resp = new ApiResponseDTO();
+        resp.setData(rateReviewService.getProductRatingsAndReviews(productId));
+        resp.setHttpCode(HttpURLConnection.HTTP_OK);
+        return new ResponseEntity<>(resp, HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));
     }
 }
