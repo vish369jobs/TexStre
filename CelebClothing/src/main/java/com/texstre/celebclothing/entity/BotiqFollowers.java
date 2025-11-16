@@ -20,9 +20,9 @@ public class BotiqFollowers {
     @Column(name = "botiq_follower_id")
     private Long botiqFollowId;
     @Column(name = "botiq_id")
-    private String botiqId;
+    private Long botiqId;
     @Column(name = "follower_user_id")
-    private String followUserId;
+    private Long followUserId;
     @NotNull
     @Column(name = "is_following", nullable=false)
     @ColumnDefault("0")
