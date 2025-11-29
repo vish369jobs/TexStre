@@ -1,0 +1,85 @@
+# ADD a Follower to Boutique API
+follow_botiq:
+  post:
+    summary: Add a Follower to a Boutique
+    operationId: addFollowerToBotiq
+    requestBody:
+      description: Add a follower to a Boutique
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/BotiqFollower"
+    responses:
+      "201":
+        description: Added a Follower to Boutique
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiResponse"
+
+# REMOVE a follower from Boutique API
+unfollow_botiq:
+  post:
+    summary: Remove a follower from Boutique
+    operationId: removeFollowerFrmBotiq
+    parameters:
+      - in: path
+        name: botiqFollowId
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+          description: The identifier of the follower associated with a Boutique.
+    responses:
+      "200":
+        description: User unfollowed from Boutique
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiResponse"
+
+# GET Boutique Followers Count API
+botiq_followers_cnt:
+  get:
+    summary: Get count of all followers of a Boutique
+    operationId: fetchBotiqFollowersCnt
+    parameters:
+      - in: path
+        name: botiqId
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+          description: The identifier of the Boutique, for which the count of followers needs to be fetched.
+    responses:
+      "200":
+        description: A Count of followers associated to a Boutique.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiResponse"
+
+# GET List of Boutiques Followed by User API
+botiqs_followed_by_user:
+  get:
+    summary: Get List of all Boutiques followed by a User
+    operationId: fetchBotiqsFollowedByUser
+    parameters:
+      - in: path
+        name: userId
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+          description: The identifier of the User, for which the List of Boutiques needs to be fetched.
+    responses:
+      "200":
+        description: List of all Boutiques followed by the given UserId.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiResponse"

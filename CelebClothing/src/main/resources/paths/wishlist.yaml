@@ -1,0 +1,81 @@
+# CREATE Wishlist API
+create_wishlist:
+  post:
+    summary: Create a User Wishlist
+    operationId: createWishlist
+    requestBody:
+      description: Create a new Wishlist for a User
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Wishlist'
+    responses:
+      '201':
+        description: Created a new User Wishist
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiResponse"
+
+# ADD Wishlist item to Wishlist API
+add_item:
+  post:
+    summary: Add Wishlist item to a Wishlist
+    operationId: addWishlistItem
+    requestBody:
+      description: Add an item to a Wishlist
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/WishlistItem'
+    responses:
+      '201':
+        description: Added Item to Wishlist
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiResponse"
+
+# REMOVE Wishlist item from Wishlist API
+remove_item:
+  post:
+    summary: Remove Wishlist item from a Wishlist
+    operationId: removeWishlistItem
+    requestBody:
+      description: Remove an item from a Wishlist
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/WishlistItem'
+    responses:
+      '201':
+        description: Removed Item from Wishlist
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiResponse"
+
+# GET List of all items in a Wishlist API
+get_wishlist_items:
+  get:
+    summary: Get list of Products/Items under a wishlist
+    operationId: fetchWishlistItems
+    parameters:
+      - in: path
+        name: wishlistId
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+          description: The identifier of the Wishlist.
+    responses:
+      "200":
+        description: Returns all the items/products under the specified Wishlist
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiResponse"

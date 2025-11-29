@@ -44,6 +44,17 @@ paths:
     $ref: './paths/botiq_products.yaml#remove_product_from_botiq'
   /botiq_products/all/{botiqId}:
     $ref: './paths/botiq_products.yaml#get_all_botiq_products'
+  /botiq_products/{botiqId}/cat/{category}:
+    $ref: './paths/botiq_products.yaml#get_botiq_products_category'
+
+  /botiq_followers/follow:
+    $ref: './paths/botiq_followers.yaml#follow_botiq'
+  /botiq_followers/unfollow/{botiqFollowId}:
+    $ref: './paths/botiq_followers.yaml#unfollow_botiq'
+  /botiq_followers/following_users_cnt/{botiqId}:
+    $ref: './paths/botiq_followers.yaml#botiq_followers_cnt'
+  /botiq_followers/botiqs_followed/{userId}:
+    $ref: './paths/botiq_followers.yaml#botiqs_followed_by_user'
 
   /rate_review/rating:
     $ref: './paths/ratings_reviews.yaml#add_rating'
@@ -51,6 +62,15 @@ paths:
     $ref: './paths/ratings_reviews.yaml#add_review'
   /rate_review/{productId}:
     $ref: './paths/ratings_reviews.yaml#get_ratings_reviews'
+
+  /wishlist/create:
+    $ref: './paths/wishlist.yaml#create_wishlist'
+  /wishlist/{wishlistId}/add_item:
+    $ref: './paths/wishlist.yaml#add_item'
+  /wishlist/{wishlistId}/remove_item:
+    $ref: './paths/wishlist.yaml#remove_item'
+  /wishlist/{wishlistId}/all_items:
+    $ref: './paths/wishlist.yaml#get_wishlist_items'
 
   /addresses:
     $ref: './paths/addresses.yaml#add_address'
@@ -77,8 +97,14 @@ components:
       $ref: './components/schemas/product.yaml#Product'
     BotiqProduct:
       $ref: './components/schemas/BotiqProduct.yaml#BotiqProduct'
+    BotiqFollower:
+      $ref: './components/schemas/BotiqFollowers.yaml#BotiqFollower'
     RatingReview:
       $ref: './components/schemas/RatingReview.yaml#RatingReview'
+    Wishlist:
+      $ref: './components/schemas/wishlist.yaml#Wishlist'
+    WishlistItem:
+      $ref: './components/schemas/wishlist.yaml#WishlistItem'
     DeliveryAddress:
       $ref: './components/schemas/DeliveryAddress.yaml#DeliveryAddress'
     ApiResponse:
