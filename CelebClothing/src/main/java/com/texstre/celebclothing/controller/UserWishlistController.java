@@ -8,8 +8,11 @@ import com.texstre.model.ApiResponseDTO;
 import com.texstre.model.WishlistDTO;
 import com.texstre.model.WishlistItemDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.net.HttpURLConnection;
 
 @RestController
 public class UserWishlistController implements WishlistApi {
@@ -17,13 +20,26 @@ public class UserWishlistController implements WishlistApi {
     UserWishlistService userWishlistService;
 
     @Override
-    public ResponseEntity<ApiResponseDTO> addWishlistItem(WishlistItemDTO wishlistItemDTO) {
-        return WishlistApi.super.addWishlistItem(wishlistItemDTO);
+    public ResponseEntity<ApiResponseDTO> createWishlist(WishlistDTO userWishlist) {
+        ApiResponseDTO resp = new ApiResponseDTO();
+        userWishlistService.addUserWishlist(userWishlist);
+        resp.setHttpCode(HttpURLConnection.HTTP_CREATED);
+        resp.setMessage("User Wishlist Added Successfully");
+        return new ResponseEntity<>(resp, HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));
     }
 
     @Override
-    public ResponseEntity<ApiResponseDTO> createWishlist(WishlistDTO wishlistDTO) {
-        return WishlistApi.super.createWishlist(wishlistDTO);
+    public ResponseEntity<ApiResponseDTO> addWishlistItem(WishlistItemDTO wishlistItem) {
+        ApiResponseDTO resp = new ApiResponseDTO();
+        userWishlistService.addUserWishlistItem(wishlistItem);
+        resp.setHttpCode(HttpURLConnection.HTTP_CREATED);
+        resp.setMessage("Wishlist Item Added Successfully");
+        return new ResponseEntity<>(resp, HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));
+    }
+
+    @Override
+    public ResponseEntity<ApiResponseDTO> removeWishlistItem(WishlistItemDTO wishlistItemDTO) {
+        return WishlistApi.super.removeWishlistItem(wishlistItemDTO);
     }
 
     @Override
@@ -31,8 +47,4 @@ public class UserWishlistController implements WishlistApi {
         return WishlistApi.super.fetchWishlistItems(wishlistId);
     }
 
-    @Override
-    public ResponseEntity<ApiResponseDTO> removeWishlistItem(WishlistItemDTO wishlistItemDTO) {
-        return WishlistApi.super.removeWishlistItem(wishlistItemDTO);
-    }
 }

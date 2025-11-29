@@ -13,6 +13,9 @@ Wishlist:
 WishlistItem:
   type: object
   properties:
+    wishlistItemId:
+      type: integer
+      format: int64
     wishlistId:
       type: integer
       format: int64

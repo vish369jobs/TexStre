@@ -13,19 +13,19 @@ import org.hibernate.annotations.ColumnDefault;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name="user_wishlists")
-public class UserWishlists {
+@Table(name="user_wishlists_products")
+public class UserWishlistItems {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_wishlist_item_id")
+    private Long usrWishlistItemId;
     @Column(name = "user_wishlist_id")
     private Long usrWishlistId;
-    @Column(name = "linked_user_id")
-    private Long linkedUserId;
-    @Column(name = "wishlist_name")
-    private String wishListName;
+    @Column(name = "product_id")
+    private Long productId;
     @NotNull
-    @Column(name = "is_valid", nullable=false)
+    @Column(name = "is_wishlisted", nullable=false)
     @ColumnDefault("1")
-    private boolean isValid;
+    private boolean isWishlisted;
 }
 
