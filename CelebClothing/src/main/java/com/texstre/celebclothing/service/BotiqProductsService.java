@@ -40,4 +40,13 @@ public class BotiqProductsService {
         return botiqProducts;
     }
 
+    public List<BotiqProductDTO> getBoutiqueProductsByCat(Long botiqId, String category) {
+        List<BotiqProductDTO> botiqProducts = new ArrayList<>();
+        List<BotiqProducts> prodsList = botiqProductsRepo.findByBotiqIdAndProductCategory(botiqId, category);
+        for( BotiqProducts prod : prodsList) {
+            botiqProducts.add(botiqProdMapper.BotiqProductsToBotiqProductDTO(prod));
+        }
+        return botiqProducts;
+    }
+
 }

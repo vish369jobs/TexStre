@@ -61,3 +61,31 @@ get_all_botiq_products:
           application/json:
             schema:
               $ref: "#/components/schemas/ApiResponse"
+
+# GET List of products in a Boutique by Category API
+get_botiq_products_by_category:
+  get:
+    summary: Get list of Products by Category in Boutique
+    operationId: fetchBotiqProductsByCategory
+    parameters:
+      - in: path
+        name: botiqId
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+          description: The identifier of the Boutique, for which the list of products needs to be fetched.
+      - in: path
+        name: category
+        required: true
+        schema:
+          type: string
+          description: The category of the product(s), for which the list of products needs to be fetched.
+    responses:
+      "200":
+        description: A List of products belonging to a category in a Boutique.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiResponse"

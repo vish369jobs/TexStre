@@ -34,6 +34,14 @@ public class BotiqProductsController implements BotiqProductsApi {
     }
 
     @Override
+    public ResponseEntity<ApiResponseDTO> fetchBotiqProductsByCategory(Long botiqId, String category) {
+        ApiResponseDTO resp = new ApiResponseDTO();
+        resp.setData(botiqProdService.getBoutiqueProductsByCat(botiqId, category));
+        resp.setHttpCode(HttpURLConnection.HTTP_OK);
+        return new ResponseEntity<>(resp, HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));
+    }
+
+    @Override
     public ResponseEntity<ApiResponseDTO> removeProductFrmBotiq(Long botiqProductId) {
         ApiResponseDTO resp = new ApiResponseDTO();
         botiqProdService.removeProductFromBoutique(botiqProductId);

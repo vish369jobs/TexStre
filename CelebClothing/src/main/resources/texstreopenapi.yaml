@@ -45,7 +45,7 @@ paths:
   /botiq_products/all/{botiqId}:
     $ref: './paths/botiq_products.yaml#get_all_botiq_products'
   /botiq_products/{botiqId}/cat/{category}:
-    $ref: './paths/botiq_products.yaml#get_botiq_products_category'
+    $ref: './paths/botiq_products.yaml#get_botiq_products_by_category'
 
   /botiq_followers/follow:
     $ref: './paths/botiq_followers.yaml#follow_botiq'
