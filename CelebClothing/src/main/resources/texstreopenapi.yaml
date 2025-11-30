@@ -67,7 +67,7 @@ paths:
     $ref: './paths/wishlist.yaml#create_wishlist'
   /wishlist/{wishlistId}/add_item:
     $ref: './paths/wishlist.yaml#add_item'
-  /wishlist/{wishlistId}/remove_item:
+  /wishlist/remove_item/{wishlistItemId}:
     $ref: './paths/wishlist.yaml#remove_item'
   /wishlist/{wishlistId}/all_items:
     $ref: './paths/wishlist.yaml#get_wishlist_items'
@@ -104,7 +104,7 @@ components:
     Wishlist:
       $ref: './components/schemas/wishlist.yaml#Wishlist'
     WishlistItem:
-      $ref: './components/schemas/wishlist.yaml#WishlistItem'
+      $ref: './components/schemas/wishlistItem.yaml#WishlistItem'
     DeliveryAddress:
       $ref: './components/schemas/DeliveryAddress.yaml#DeliveryAddress'
     ApiResponse:

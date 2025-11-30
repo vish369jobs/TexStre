@@ -9,18 +9,3 @@ Wishlist:
       format: int64
     wishlistName:
       type: string
-
-WishlistItem:
-  type: object
-  properties:
-    wishlistItemId:
-      type: integer
-      format: int64
-    wishlistId:
-      type: integer
-      format: int64
-    productId:
-      type: integer
-      format: int64
-    isWishlisted:
-      type: boolean

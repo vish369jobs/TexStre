@@ -43,13 +43,15 @@ remove_item:
   post:
     summary: Remove Wishlist item from a Wishlist
     operationId: removeWishlistItem
-    requestBody:
-      description: Remove an item from a Wishlist
-      required: true
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/WishlistItem'
+    parameters:
+      - in: path
+        name: wishlistItemId
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+          description: The identifier of the follower associated with a Boutique.
     responses:
       '201':
         description: Removed Item from Wishlist

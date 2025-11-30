@@ -31,20 +31,27 @@ public class UserWishlistController implements WishlistApi {
     @Override
     public ResponseEntity<ApiResponseDTO> addWishlistItem(WishlistItemDTO wishlistItem) {
         ApiResponseDTO resp = new ApiResponseDTO();
-        userWishlistService.addUserWishlistItem(wishlistItem);
+        userWishlistService.addWishlistItem(wishlistItem);
         resp.setHttpCode(HttpURLConnection.HTTP_CREATED);
         resp.setMessage("Wishlist Item Added Successfully");
         return new ResponseEntity<>(resp, HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));
     }
 
     @Override
-    public ResponseEntity<ApiResponseDTO> removeWishlistItem(WishlistItemDTO wishlistItemDTO) {
-        return WishlistApi.super.removeWishlistItem(wishlistItemDTO);
+    public ResponseEntity<ApiResponseDTO> removeWishlistItem(Long wishlistItemId) {
+        ApiResponseDTO resp = new ApiResponseDTO();
+        userWishlistService.removeWishlistItem(wishlistItemId);
+        resp.setHttpCode(HttpURLConnection.HTTP_CREATED);
+        resp.setMessage("Wishlist Item Removed Successfully");
+        return new ResponseEntity<>(resp, HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));
     }
 
     @Override
     public ResponseEntity<ApiResponseDTO> fetchWishlistItems(Long wishlistId) {
-        return WishlistApi.super.fetchWishlistItems(wishlistId);
+        ApiResponseDTO resp = new ApiResponseDTO();
+        resp.setData(userWishlistService.getWishlistItems(wishlistId));
+        resp.setHttpCode(HttpURLConnection.HTTP_CREATED);
+        return new ResponseEntity<>(resp, HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));
     }
 
 }
