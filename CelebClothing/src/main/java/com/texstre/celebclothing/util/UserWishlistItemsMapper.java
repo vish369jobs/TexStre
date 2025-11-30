@@ -17,7 +17,7 @@ public interface UserWishlistItemsMapper {
     @Mapping(target = "wishlistItemId", source = "usrWishlistItemId")
     @Mapping(target = "wishlistId", source = "usrWishlistId")
     @Mapping(target = "productId", source = "productId")
-    //@Mapping(target = "isWishlisted", source = "isWishlistItem")
+    //@Mapping(target = "isItemWishlisted", source = "isItemWishlisted")
     WishlistItemDTO usrWishlistItemsToWishlistItemsDTO(UserWishlistItems wlItems);
 
     // Method for DTO to Entity conversion
@@ -25,6 +25,6 @@ public interface UserWishlistItemsMapper {
     @Mapping(target = "usrWishlistItemId", source = "wishlistItemId")
     @Mapping(target = "usrWishlistId", source = "wishlistId")
     @Mapping(target = "productId", source = "productId")
-   // @Mapping(target = "isWishlistItem", source = "isWishlisted")
+    @Mapping(target = "isItemWishlisted", source = "isItemWishlisted")
     UserWishlistItems wishlistItemsDTOToUsrWishlistItems(WishlistItemDTO wlItems);
 }

@@ -10,5 +10,5 @@ WishlistItem:
     productId:
       type: integer
       format: int64
-    isWishlisted:
+    isItemWishlisted:
       type: boolean
