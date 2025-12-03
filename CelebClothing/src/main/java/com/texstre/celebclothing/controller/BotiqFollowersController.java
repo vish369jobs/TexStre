@@ -29,9 +29,9 @@ public class BotiqFollowersController implements BotiqFollowersApi {
     }
 
     @Override
-    public ResponseEntity<ApiResponseDTO> removeFollowerFrmBotiq(Long botiqFollowId) {
+    public ResponseEntity<ApiResponseDTO> removeFollowerFrmBotiq(Long botiqId, Long followUsrId) {
         ApiResponseDTO resp = new ApiResponseDTO();
-        botiqfollowersService.unFollowBotiq(botiqFollowId);
+        botiqfollowersService.unFollowBotiq(botiqId, followUsrId);
         resp.setHttpCode(HttpURLConnection.HTTP_CREATED);
         resp.setMessage("Boutique Unfollowed Successfully");
         return new ResponseEntity<>(resp, HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));

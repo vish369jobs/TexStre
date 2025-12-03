@@ -49,7 +49,7 @@ paths:
 
   /botiq_followers/follow:
     $ref: './paths/botiq_followers.yaml#follow_botiq'
-  /botiq_followers/unfollow/{botiqFollowId}:
+  /botiq_followers/unfollow/{botiqId}/{followUsrId}:
     $ref: './paths/botiq_followers.yaml#unfollow_botiq'
   /botiq_followers/following_users_cnt/{botiqId}:
     $ref: './paths/botiq_followers.yaml#botiq_followers_cnt'

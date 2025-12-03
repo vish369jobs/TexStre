@@ -31,9 +31,9 @@ public class BotiqFollowersService {
         botiqFollowRepo.save(followBotiq);
     }
 
-    public void unFollowBotiq(Long botiqFollowerId) {
-        if(botiqFollowerId != null) {
-            Optional<BotiqFollowers> followBotiq = botiqFollowRepo.findById(botiqFollowerId);
+    public void unFollowBotiq(Long botiqId, Long followUsrId) {
+        if(botiqId != null && followUsrId != null) {
+            Optional<BotiqFollowers> followBotiq = botiqFollowRepo.findByBotiqIdAndFollowUserId(botiqId, followUsrId);
             if(followBotiq.isPresent()) {
                 followBotiq.get().setFollowing(Boolean.FALSE);
                 botiqFollowRepo.save(followBotiq.get());

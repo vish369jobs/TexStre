@@ -25,13 +25,19 @@ unfollow_botiq:
     operationId: removeFollowerFrmBotiq
     parameters:
       - in: path
-        name: botiqFollowId
+        name: botiqId
         required: true
         schema:
           type: integer
           format: int64
-          minimum: 1
-          description: The identifier of the follower associated with a Boutique.
+          description: The identifier of the Boutique.
+      - in: path
+        name: followUsrId
+        required: true
+        schema:
+          type: integer
+          format: int64
+          description: The identifier of the following User.
     responses:
       "200":
         description: User unfollowed from Boutique
