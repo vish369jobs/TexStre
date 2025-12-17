@@ -19,7 +19,7 @@ create_wishlist:
               $ref: "#/components/schemas/ApiResponse"
 
 # ADD Wishlist item to Wishlist API
-add_item:
+add_item_to_wishlist:
   post:
     summary: Add Wishlist item to a Wishlist
     operationId: addWishlistItem
@@ -33,6 +33,35 @@ add_item:
     responses:
       '201':
         description: Added Item to Wishlist
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiResponse"
+
+# ADD Wishlist item to DEFAULT Wishlist API
+add_item_to_default_wishlist:
+  post:
+    summary: Add Wishlist item to a DEFAULT Wishlist
+    operationId: addDefaultWishlistItem
+    parameters:
+      - in: path
+        name: userId
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+          description: The identifier of the user linked to the DEFAULT Wishlist.
+    requestBody:
+      description: Add an item to a DEFAULT Wishlist
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/WishlistItem'
+    responses:
+      '201':
+        description: Added Item to DEFAULT sWishlist
         content:
           application/json:
             schema:

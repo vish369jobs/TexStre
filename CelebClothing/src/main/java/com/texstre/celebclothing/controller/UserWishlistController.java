@@ -2,6 +2,7 @@ package com.texstre.celebclothing.controller;
 
 import com.texstre.api.BotiqFollowersApi;
 import com.texstre.api.WishlistApi;
+import com.texstre.celebclothing.entity.UserWishlists;
 import com.texstre.celebclothing.service.BotiqFollowersService;
 import com.texstre.celebclothing.service.UserWishlistService;
 import com.texstre.model.ApiResponseDTO;
@@ -13,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.HttpURLConnection;
+import java.util.Optional;
 
 @RestController
 public class UserWishlistController implements WishlistApi {
@@ -34,6 +36,27 @@ public class UserWishlistController implements WishlistApi {
         userWishlistService.addWishlistItem(wishlistItem);
         resp.setHttpCode(HttpURLConnection.HTTP_CREATED);
         resp.setMessage("Wishlist Item Added Successfully");
+        return new ResponseEntity<>(resp, HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));
+    }
+
+    @Override
+    public ResponseEntity<ApiResponseDTO> addDefaultWishlistItem(Long userId, WishlistItemDTO wishlistItem) {
+        ApiResponseDTO resp = new ApiResponseDTO();
+
+        // Create a DEFAULT Wishlist, to which the items needs to be added - IF NOT PRESENT
+        WishlistDTO defaultUsrWishlist = new WishlistDTO();
+        defaultUsrWishlist.setUserId(userId);
+        defaultUsrWishlist.setWishlistName("DefaultWL_" + userId);
+        userWishlistService.addUserWishlist(defaultUsrWishlist);
+
+        Optional<UserWishlists> defWishList = userWishlistService.fetchWishlistDetails(userId, "DefaultWL_" + userId);
+        if(defWishList.isPresent()) {
+            wishlistItem.setWishlistId(defWishList.get().getUsrWishlistId());
+            userWishlistService.addWishlistItem(wishlistItem);
+            resp.setHttpCode(HttpURLConnection.HTTP_CREATED);
+            resp.setMessage("DEFAULT Wishlist Item Added Successfully");
+        }
+
         return new ResponseEntity<>(resp, HttpStatusCode.valueOf(HttpURLConnection.HTTP_OK));
     }
 

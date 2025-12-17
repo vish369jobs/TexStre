@@ -26,12 +26,19 @@ public class UserWishlistService {
     private UserWishlistItemsMapper wishlistItemsMapper;
 
     public void addUserWishlist(WishlistDTO userWishlist) {
-        UserWishlists usrWishlist = UserWishlists.builder()
-                .linkedUserId(userWishlist.getUserId())
-                .wishListName(userWishlist.getWishlistName())
-                .isValid(Boolean.TRUE)
-                .build();
-        wishlistRepo.save(usrWishlist);
+        Optional<UserWishlists> existingWishLists = fetchWishlistDetails(userWishlist.getUserId(), userWishlist.getWishlistName());
+        if(existingWishLists.isEmpty()) {
+            UserWishlists usrWishlist = UserWishlists.builder()
+                    .linkedUserId(userWishlist.getUserId())
+                    .wishListName(userWishlist.getWishlistName())
+                    .isValid(Boolean.TRUE)
+                    .build();
+            wishlistRepo.save(usrWishlist);
+        }
+    }
+
+    public Optional<UserWishlists> fetchWishlistDetails(Long userId, String wishlistName) {
+        return wishlistRepo.findByLinkedUserIdAndWishListName(userId, wishlistName);
     }
 
     public void addWishlistItem(WishlistItemDTO userWishlistItem) {

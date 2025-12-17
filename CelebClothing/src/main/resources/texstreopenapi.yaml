@@ -47,6 +47,15 @@ paths:
   /botiq_products/{botiqId}/cat/{category}:
     $ref: './paths/botiq_products.yaml#get_botiq_products_by_category'
 
+  /orders/new:
+    $ref: './paths/orders.yaml#order_new'
+  /orders/cart_add_product/{productId}:
+    $ref: './paths/orders.yaml#add_product_to_cart'
+  /orders/cart_remove_product/{productId}:
+    $ref: './paths/orders.yaml#remove_product_frm_cart'
+  /orders/submit:
+    $ref: './paths/orders.yaml#order_submit'
+
   /botiq_followers/follow:
     $ref: './paths/botiq_followers.yaml#follow_botiq'
   /botiq_followers/unfollow/{botiqId}/{followUsrId}:
@@ -66,7 +75,9 @@ paths:
   /wishlist/create:
     $ref: './paths/wishlist.yaml#create_wishlist'
   /wishlist/{wishlistId}/add_item:
-    $ref: './paths/wishlist.yaml#add_item'
+    $ref: './paths/wishlist.yaml#add_item_to_wishlist'
+  /wishlist/default/{userId}/add_item:
+    $ref: './paths/wishlist.yaml#add_item_to_default_wishlist'
   /wishlist/remove_item/{wishlistItemId}:
     $ref: './paths/wishlist.yaml#remove_item'
   /wishlist/{wishlistId}/all_items:
@@ -97,6 +108,10 @@ components:
       $ref: './components/schemas/product.yaml#Product'
     BotiqProduct:
       $ref: './components/schemas/BotiqProduct.yaml#BotiqProduct'
+    OrderDetails:
+      $ref: './components/schemas/OrderDetails.yaml#OrderDetails'
+    OrderItem:
+      $ref: './components/schemas/OrderItem.yaml#OrderItem'
     BotiqFollower:
       $ref: './components/schemas/BotiqFollowers.yaml#BotiqFollower'
     RatingReview:
