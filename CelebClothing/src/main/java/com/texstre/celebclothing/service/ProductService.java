@@ -21,8 +21,8 @@ public class ProductService {
     public void addProduct(ProductDTO productDTO) {
         ProductDetails prodItem = ProductDetails.builder()
                 .productName(productDTO.getProductName())
-                .productSize(productDTO.getProductSize())
-                .productColour(productDTO.getProductColour())
+                .availableSizes(productDTO.getAvailableSizes())
+                .availableColors(productDTO.getAvailableColors())
                 .fabric(productDTO.getFabric())
                 .prodShortDesc(productDTO.getShortDesc())
                 .prodLongDesc(productDTO.getLongDesc())

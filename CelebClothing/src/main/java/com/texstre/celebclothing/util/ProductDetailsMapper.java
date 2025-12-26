@@ -16,8 +16,8 @@ public interface ProductDetailsMapper {
     @BeanMapping(ignoreByDefault = true) // Ignore all fields by default
     @Mapping(target = "productId", source = "productId")
     @Mapping(target = "productName", source = "productName")
-    @Mapping(target = "productSize", source = "productSize")
-    @Mapping(target = "productColour", source = "productColour")
+    @Mapping(target = "availableSizes", source = "availableSizes")
+    @Mapping(target = "availableColors", source = "availableColors")
     @Mapping(target = "fabric", source = "fabric")
     @Mapping(target = "shortDesc", source = "prodShortDesc")
     @Mapping(target = "longDesc", source = "prodLongDesc")
@@ -32,8 +32,8 @@ public interface ProductDetailsMapper {
     @BeanMapping(ignoreByDefault = true) // Ignore all fields by default
     @Mapping(target = "productId", source = "productId")
     @Mapping(target = "productName", source = "productName")
-    @Mapping(target = "productSize", source = "productSize")
-    @Mapping(target = "productColour", source = "productColour")
+    @Mapping(target = "availableSizes", source = "availableSizes")
+    @Mapping(target = "availableColors", source = "availableColors")
     @Mapping(target = "fabric", source = "fabric")
     @Mapping(target = "prodShortDesc", source = "shortDesc")
     @Mapping(target = "prodLongDesc", source = "longDesc")

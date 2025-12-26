@@ -6,10 +6,14 @@ Product:
       format: int64
     productName:
       type: string
-    productSize:
-      type: string
-    productColour:
-      type: string
+    availableSizes:
+      type: array
+      items:
+        type: string
+    availableColors:
+      type: array
+      items:
+        type: string
     fabric:
       type: string
     shortDesc:

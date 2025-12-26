@@ -8,6 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -21,10 +23,14 @@ public class ProductDetails {
     private Long productId;
     @Column(name = "product_name")
     private String productName;
-    @Column(name = "product_size")
-    private String productSize;
-    @Column(name = "product_colour")
-    private String productColour;
+    @ElementCollection
+    @CollectionTable(name = "product_sizes", joinColumns = @JoinColumn(name = "id_product"))
+    @Column(name = "available_sizes")
+    private List<String> availableSizes;
+    @ElementCollection
+    @CollectionTable(name = "product_colors", joinColumns = @JoinColumn(name = "id_product"))
+    @Column(name = "available_colors")
+    private List<String> availableColors;
     @Column(name = "fabric")
     private String fabric;
     @Column(name = "prod_short_desc")
