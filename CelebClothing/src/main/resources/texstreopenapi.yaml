@@ -49,9 +49,9 @@ paths:
 
   /orders/new:
     $ref: './paths/orders.yaml#order_new'
-  /orders/cart_add_product/{productId}:
+  /orders/cart_add/{productId}:
     $ref: './paths/orders.yaml#add_product_to_cart'
-  /orders/cart_remove_product/{productId}:
+  /orders/cart_remove/{productId}:
     $ref: './paths/orders.yaml#remove_product_frm_cart'
   /orders/submit:
     $ref: './paths/orders.yaml#order_submit'

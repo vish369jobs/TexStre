@@ -1,0 +1,83 @@
+# NEW order API
+order_new:
+  post:
+    summary: Create a new Order
+    operationId: createNewOrder
+    requestBody:
+      description: Create a new Order for a User
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/OrderDetails'
+    responses:
+      '201':
+        description: Created a new Order for the user
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiResponse"
+
+# ADD Product to cart : Order API
+add_product_to_cart:
+  post:
+    summary: Add Product item to a Order Cart
+    operationId: addProductToCart
+    requestBody:
+      description: Add an item to a Cart
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/OrderItem'
+    responses:
+      '201':
+        description: Added Product Item to Cart
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiResponse"
+
+# REMOVE Product item from Cart : Order API
+remove_product_frm_cart:
+  post:
+    summary: Remove Product item from cart
+    operationId: removeProductFrmCart
+    parameters:
+      - in: path
+        name: productId
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+          description: The identifier of the follower associated with a Boutique.
+    responses:
+      '201':
+        description: Removed Item from Wishlist
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiResponse"
+
+# SUBMIT an Order API
+order_submit:
+  get:
+    summary: Get list of Products/Items under a wishlist
+    operationId: submitOrder
+    parameters:
+      - in: path
+        name: wishlistId
+        required: true
+        schema:
+          type: integer
+          format: int64
+          minimum: 1
+          description: The identifier of the Wishlist.
+    responses:
+      "200":
+        description: Returns all the items/products under the specified Wishlist
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApiResponse"

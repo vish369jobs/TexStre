@@ -1,0 +1,17 @@
+OrderDetails:
+  type: object
+  properties:
+    orderId:
+      type: integer
+      format: int64
+    orderUserId:
+      type: integer
+      format: int64
+    deliveryAddressId:
+      type: integer
+      format: int64
+    totalCost:
+      type: number
+      format: double
+    orderDate:
+      type: string
