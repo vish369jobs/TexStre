@@ -1,0 +1,11 @@
+OrderItem:
+  type: object
+  properties:
+    wishlistId:
+      type: integer
+      format: int64
+    userId:
+      type: integer
+      format: int64
+    wishlistName:
+      type: string
